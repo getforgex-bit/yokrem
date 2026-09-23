@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>YOKREM | Ropa que te define</title>
+  <meta name="description" content="YOKREM: ropa casual, versátil y cómoda para expresar quién eres. Colecciones Verano, Otoño e Invierno y conjuntos completos. Una marca nacida en Motozintla de Mendoza, Chiapas.">
+  <meta name="theme-color" content="#141414">
+  <meta property="og:title" content="YOKREM | Ropa que te define">
+  <meta property="og:description" content="Colecciones Verano, Otoño e Invierno y conjuntos completos.">
+  <meta property="og:image" content="img/look-otono.webp">
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..600;1,6..96,400..600&family=Jost:wght@300..600&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="preload" as="image" href="img/hero-poster.webp" fetchpriority="high">
+  <noscript><style>.site-header.is-over-hero { position: relative; }</style></noscript>
+  <script src="js/products.js" defer></script>
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#tienda">Saltar a la tienda</a>
+
+  <!-- Barra de promoción -->
+  <div class="promo">
+    <p class="wrap"><strong class="promo-edition">Edición Cinemática 2026</strong><span class="promo-sep" aria-hidden="true">·</span><span class="promo-long">Conjuntos completos: </span>ahorra hasta $447 <a href="#conjuntos">Ver conjuntos</a></p>
+  </div>
+
+  <!-- Encabezado -->
+  <header class="site-header is-over-hero" id="encabezado">
+    <div class="wrap header-inner">
+      <button class="icon-btn menu-toggle" type="button" id="btn-menu" aria-label="Abrir menú" aria-haspopup="dialog">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
+      </button>
+
+      <a class="brand" href="#inicio" aria-label="YOKREM, ir al inicio">
+        <img class="logo-on-light" src="img/logo-monograma.webp" alt="" width="240" height="236">
+        <img class="logo-on-dark" src="img/logo-monograma-claro.webp" alt="" width="240" height="236">
+        <span class="wordmark" aria-hidden="true">YO<span>K</span>REM</span>
+      </a>
+
+      <nav class="nav-main" aria-label="Principal">
+        <a href="#tienda" data-filtro="todo">Tienda</a>
+        <a href="#tienda" data-filtro="verano">Verano</a>
+        <a href="#tienda" data-filtro="otono">Otoño</a>
+        <a href="#tienda" data-filtro="invierno">Invierno</a>
+        <a href="#conjuntos">Conjuntos</a>
+        <a href="#nosotros">Nosotros</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" type="button" id="btn-buscar" aria-label="Buscar" aria-expanded="false" aria-controls="barra-busqueda">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg>
+        </button>
+        <button class="icon-btn" type="button" id="btn-favoritos" aria-label="Favoritos" aria-haspopup="dialog">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3 4.6 13a4.7 4.7 0 0 1 0-6.7 4.7 4.7 0 0 1 6.7 0l.7.7.7-.7a4.7 4.7 0 0 1 6.7 0 4.7 4.7 0 0 1 0 6.7Z"/></svg>
+          <span class="badge" id="conteo-favoritos" hidden>0</span>
+        </button>
+        <button class="icon-btn" type="button" id="btn-bolsa" aria-label="Bolsa de compras" aria-haspopup="dialog">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1 12.5H6Z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg>
+          <span class="badge" id="conteo-bolsa" hidden>0</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="search-bar" id="barra-busqueda" hidden>
+      <div class="wrap search-inner">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg>
+        <label for="input-busqueda" class="sr-only">Buscar prendas</label>
+        <input id="input-busqueda" type="search" placeholder="Busca: jean, suéter, azul marino…" autocomplete="off" enterkeyhint="search">
+        <button class="text-btn" type="button" id="btn-cerrar-busqueda">Cerrar</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Portada -->
+    <section class="hero" id="inicio" aria-labelledby="hero-titulo">
+      <div class="hero-media" aria-hidden="true">
+        <video class="hero-video" id="hero-video" muted loop playsinline preload="auto" poster="img/hero-poster.webp" disablepictureinpicture disableremoteplayback>
+          <source src="img/hero-720.mp4" type="video/mp4" media="(max-width: 900px)">
+          <source src="img/hero-1080.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="wrap hero-stage">
+        <div class="hero-copy">
+          <p class="hero-pill"><span>Campaña cinemática</span> <span class="pill-dot" aria-hidden="true">•</span> <span>Verano / Otoño / Invierno</span></p>
+          <h1 id="hero-titulo">Ropa que <em>te define</em></h1>
+          <p class="hero-lede">Moda casual contemporánea con identidad de Motozintla de Mendoza, Chiapas. Prendas cómodas y versátiles que funcionan como un lienzo: tú decides quién quieres ser.</p>
+          <div class="hero-ctas">
+            <a class="btn btn-ochre" href="#tienda" data-filtro="todo">Comprar colección</a>
+            <a class="btn btn-ghost" href="#conjuntos">Ver conjuntos</a>
+          </div>
+          <div class="hero-player">
+            <button class="player-btn" type="button" id="btn-video" hidden>
+              <svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h2.6v11H4zM9.4 2.5H12v11H9.4z"/></svg>
+              <svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 2.3 13 8l-8.5 5.7z"/></svg>
+              <span id="btn-video-texto">Pausar video</span>
+            </button>
+            <p class="player-note">Audio desactivado por confort auditivo</p>
+          </div>
+        </div>
+
+        <aside class="runway" aria-labelledby="runway-titulo">
+          <div class="runway-head">
+            <h2 id="runway-titulo">Colecciones en pasarela</h2>
+            <span>3 lookbooks</span>
+          </div>
+          <ul class="runway-list">
+            <li>
+              <a class="runway-card" href="#tienda" data-filtro="verano">
+                <span class="runway-media"><img src="img/lookbook-verano.webp" alt="" width="360" height="480"></span>
+                <span class="runway-cap"><strong>Verano</strong><span>Fresco</span></span>
+              </a>
+            </li>
+            <li>
+              <a class="runway-card" href="#tienda" data-filtro="otono">
+                <span class="runway-media"><img src="img/lookbook-otono.webp" alt="" width="360" height="480"></span>
+                <span class="runway-cap"><strong>Otoño</strong><span>Cálido</span></span>
+              </a>
+            </li>
+            <li>
+              <a class="runway-card" href="#tienda" data-filtro="invierno">
+                <span class="runway-media is-right"><img src="img/lookbook-invierno.webp" alt="" width="360" height="480"></span>
+                <span class="runway-cap"><strong>Invierno</strong><span>Sobrio</span></span>
+              </a>
+            </li>
+          </ul>
+        </aside>
+      </div>
+
+      <div class="hero-band">
+        <ul class="wrap band-list" aria-label="Lo que nos define">
+          <li>Hecho en Chiapas</li>
+          <li>Corte y confección propia</li>
+          <li>Envíos a todo México</li>
+          <li>Moda auténtica y sostenible</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Tienda -->
+    <section class="section shop" id="tienda" aria-labelledby="tienda-titulo">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Catálogo</p>
+            <h2 class="h2" id="tienda-titulo">Tienda</h2>
+          </div>
+          <p class="result-count" id="conteo-resultados" aria-live="polite">8 prendas</p>
+        </div>
+
+        <div class="toolbar">
+          <div class="chips" id="filtros" role="group" aria-label="Filtrar por temporada">
+            <button class="chip" type="button" data-temporada="todo" aria-pressed="true">Todo</button>
+            <button class="chip" type="button" data-temporada="verano" aria-pressed="false">Verano</button>
+            <button class="chip" type="button" data-temporada="otono" aria-pressed="false">Otoño</button>
+            <button class="chip" type="button" data-temporada="invierno" aria-pressed="false">Invierno</button>
+          </div>
+          <div class="sort">
+            <label for="orden">Ordenar por</label>
+            <select id="orden">
+              <option value="recomendados">Recomendados</option>
+              <option value="precio-asc">Precio: menor a mayor</option>
+              <option value="precio-desc">Precio: mayor a menor</option>
+            </select>
+          </div>
+        </div>
+
+        <p class="search-state" id="estado-busqueda" hidden>
+          Resultados para “<span id="termino-busqueda"></span>”
+          <button class="text-btn" type="button" id="btn-borrar-busqueda">Borrar búsqueda</button>
+        </p>
+
+        <ul class="grid" id="catalogo" aria-label="Prendas"></ul>
+
+        <div class="empty" id="catalogo-vacio" hidden>
+          <p>No encontramos prendas con esa búsqueda.</p>
+          <button class="btn btn-line" type="button" id="btn-ver-todo">Ver todas las prendas</button>
+        </div>
+
+        <noscript><p class="empty">Activa JavaScript para ver el catálogo y usar la bolsa de compras.</p></noscript>
+      </div>
+    </section>
+
+    <!-- Conjuntos -->
+    <section class="section looks" id="conjuntos" aria-labelledby="conjuntos-titulo">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Compra el look</p>
+            <h2 class="h2" id="conjuntos-titulo">Conjuntos completos</h2>
+          </div>
+          <p class="section-note">Llévate el conjunto completo y paga menos que por las piezas sueltas.</p>
+        </div>
+        <div class="looks-grid" id="lista-conjuntos"></div>
+      </div>
+    </section>
+
+    <!-- Historia -->
+    <section class="section story" id="nosotros" aria-labelledby="historia-titulo">
+      <div class="wrap story-grid">
+        <div class="story-lead">
+          <p class="eyebrow">Nuestra historia</p>
+          <h2 id="historia-titulo">Nacimos en Motozintla de Mendoza, en el corazón de la Sierra Madre de Chiapas.</h2>
+          <img class="story-logo" src="img/logo-yokrem.webp" alt="Logotipo de YOKREM" width="600" height="540" loading="lazy">
+        </div>
+        <div class="story-body">
+          <p>YOKREM nació a partir de una conversación entre tres compañeros, unidos por una misma inquietud: la dificultad de encontrar ropa casual que combinara comodidad, versatilidad y personalidad.</p>
+          <p>Rodeados de una tierra con profundas raíces, cultura e identidad, encontramos en nuestro entorno la inspiración para crear algo propio. Así surgió la visión de construir una marca de ropa casual capaz de romper con los moldes establecidos y ofrecer una propuesta en la que cada persona, sin importar su edad, pudiera encontrar prendas esenciales para el día a día y, al mismo tiempo, hacerlas parte de su propio estilo.</p>
+          <p>Creemos que la ropa no debe imponer quién eres, sino acompañarte a expresar quién quieres ser. Por eso creamos piezas versátiles que funcionan como un lienzo para la autenticidad, que cada persona adapta a su personalidad, su esencia y su manera de vivir.</p>
+          <p>Lo que comenzó como una idea entre estudiantes hoy se convierte en un proyecto con una visión clara: demostrar que la moda casual puede ser mucho más que una forma de vestir. Puede ser una herramienta para expresar nuestra identidad, celebrar nuestra esencia y sentirnos auténticos en nuestra propia piel.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Origen del nombre -->
+    <section class="name-band" aria-labelledby="nombre-titulo">
+      <div class="wrap name-grid">
+        <div class="syllables" aria-hidden="true">
+          <div><span class="syl">YO</span><span class="who">Yojan</span></div>
+          <div><span class="syl"><span class="gold">K</span>R</span><span class="who">Kristel</span></div>
+          <div><span class="syl">EM</span><span class="who">Emmanuel</span></div>
+        </div>
+        <div class="name-copy">
+          <h2 class="eyebrow on-dark" id="nombre-titulo">El origen de nuestro nombre</h2>
+          <p class="sr-only">YO de Yojan, KR de Kristel y EM de Emmanuel.</p>
+          <p>YOKREM surge de la combinación de dos letras de los nombres de cada uno de sus tres fundadores, convirtiendo nuestras identidades en una sola palabra y en un propósito compartido.</p>
+          <p>De la misma manera en que unimos nuestras historias para crear algo único, diseñamos colecciones que buscan conectar con la identidad de cada persona que forma parte de la marca.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Misión, visión y valores -->
+    <section class="section purpose" id="mision" aria-label="Misión, visión y valores">
+      <div class="wrap purpose-grid">
+        <article>
+          <h2 class="eyebrow">Misión</h2>
+          <p class="purpose-text">Diseñar y ofrecer prendas de vestir modernas, elegantes y de alta calidad que permitan a nuestros clientes expresar su personalidad y sentirse seguros con su estilo. Buscamos brindar una experiencia de compra accesible, innovadora y enfocada en la satisfacción de nuestros clientes.</p>
+        </article>
+        <article>
+          <h2 class="eyebrow">Visión</h2>
+          <p class="purpose-text">Ser una marca de ropa reconocida a nivel nacional por su elegancia, calidad e innovación, convirtiéndonos en una referencia de moda y estilo. Aspiramos a crecer constantemente, crear tendencias y lograr que YOKREM sea sinónimo de confianza, identidad y distinción.</p>
+        </article>
+      </div>
+      <div class="wrap values">
+        <h2 class="eyebrow">Valores</h2>
+        <ul class="values-list">
+          <li>Honestidad</li>
+          <li>Integridad</li>
+          <li>Compromiso</li>
+          <li>Respeto</li>
+          <li>Responsabilidad</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Organización -->
+    <section class="section org" id="organizacion" aria-labelledby="org-titulo">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Cómo nos organizamos</p>
+            <h2 class="h2" id="org-titulo">Un equipo, tres direcciones</h2>
+          </div>
+        </div>
+        <ol class="org-top">
+          <li><span class="org-label">Fundadores</span> Yojan · Kristel · Emmanuel</li>
+          <li aria-hidden="true" class="org-arrow">→</li>
+          <li><span class="org-label">Dirección</span> Dirección General</li>
+        </ol>
+        <div class="org-cols">
+          <div class="org-col">
+            <h3>Producción y diseño</h3>
+            <ul>
+              <li>Diseño y patronaje</li>
+              <li>Taller de corte y confección</li>
+              <li>Control de calidad y distribución de la materia prima</li>
+            </ul>
+          </div>
+          <div class="org-col">
+            <h3>Administración y finanzas</h3>
+            <ul>
+              <li>Contabilidad y costos de producción</li>
+              <li>Recursos humanos</li>
+            </ul>
+          </div>
+          <div class="org-col">
+            <h3>Ventas y mercadotecnia</h3>
+            <ul>
+              <li>Atención al cliente y ventas</li>
+              <li>Gestión de inventarios</li>
+              <li>Publicidad y redes sociales</li>
+              <li>Gerencia comercial</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Pie de página -->
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div class="footer-brand">
+        <img src="img/logo-yokrem.webp" alt="YOKREM" width="600" height="540" loading="lazy">
+        <p>Ropa que te define.</p>
+      </div>
+      <nav aria-label="Comprar">
+        <h2 class="footer-title">Comprar</h2>
+        <ul>
+          <li><a href="#tienda" data-filtro="verano">Verano</a></li>
+          <li><a href="#tienda" data-filtro="otono">Otoño</a></li>
+          <li><a href="#tienda" data-filtro="invierno">Invierno</a></li>
+          <li><a href="#conjuntos">Conjuntos completos</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="YOKREM">
+        <h2 class="footer-title">YOKREM</h2>
+        <ul>
+          <li><a href="#nosotros">Nuestra historia</a></li>
+          <li><a href="#mision">Misión, visión y valores</a></li>
+          <li><a href="#organizacion">Cómo nos organizamos</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="wrap footer-legal">
+      <p>© <span id="anio">2026</span> YOKREM MODA Y ESTILO, S.A. DE C.V.</p>
+      <p>Motozintla de Mendoza, Chiapas, México · Precios en pesos mexicanos (MXN)</p>
+    </div>
+  </footer>
+
+  <!-- Menú móvil -->
+  <dialog class="drawer drawer-left" id="menu-movil" aria-label="Menú">
+    <div class="drawer-head">
+      <span class="wordmark small" aria-hidden="true">YO<span>K</span>REM</span>
+      <button class="icon-btn" type="button" data-cerrar aria-label="Cerrar menú">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+    <nav class="drawer-body mobile-nav" aria-label="Menú móvil">
+      <a href="#tienda" data-filtro="todo">Tienda</a>
+      <a href="#tienda" data-filtro="verano">Verano</a>
+      <a href="#tienda" data-filtro="otono">Otoño</a>
+      <a href="#tienda" data-filtro="invierno">Invierno</a>
+      <a href="#conjuntos">Conjuntos</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#mision">Misión y visión</a>
+    </nav>
+  </dialog>
+
+  <!-- Vista rápida de producto -->
+  <dialog class="modal" id="vista-rapida" aria-labelledby="vr-titulo">
+    <button class="icon-btn modal-close" type="button" data-cerrar aria-label="Cerrar">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+    <div class="qv-grid">
+      <div class="qv-media">
+        <img class="qv-main" id="vr-imagen" src="img/look-verano.webp" alt="">
+        <div class="qv-thumbs" id="vr-miniaturas" role="group" aria-label="Fotos"></div>
+      </div>
+      <div class="qv-info">
+        <p class="eyebrow" id="vr-temporada"></p>
+        <h2 class="qv-title" id="vr-titulo"></h2>
+        <p class="qv-price" id="vr-precio"></p>
+        <p class="qv-desc" id="vr-descripcion"></p>
+        <p class="qv-color" id="vr-color"></p>
+        <ul class="qv-pieces" id="vr-piezas" hidden></ul>
+        <fieldset class="sizes">
+          <legend>Talla</legend>
+          <div class="size-opts" id="vr-tallas"></div>
+          <p class="sizes-note" id="vr-nota-talla" hidden>La talla elegida se aplica a todas las piezas del conjunto.</p>
+        </fieldset>
+        <p class="form-error" id="vr-error" role="alert" hidden>Elige una talla para añadir a la bolsa.</p>
+        <div class="qv-actions">
+          <button class="btn btn-dark btn-block" type="button" id="vr-agregar">Añadir a la bolsa</button>
+          <button class="btn btn-line btn-block" type="button" id="vr-favorito" aria-pressed="false">Guardar en favoritos</button>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Bolsa -->
+  <dialog class="drawer" id="bolsa" aria-labelledby="bolsa-titulo">
+    <div class="drawer-head">
+      <h2 class="drawer-title" id="bolsa-titulo">Bolsa de compras</h2>
+      <button class="icon-btn" type="button" data-cerrar aria-label="Cerrar bolsa">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+    <div class="drawer-body" id="bolsa-contenido"></div>
+    <div class="drawer-foot" id="bolsa-resumen" hidden>
+      <div class="summary" id="bolsa-totales"></div>
+      <button class="btn btn-dark btn-block" type="button" id="btn-pagar">Continuar al pago</button>
+      <div class="notice" id="aviso-pago" tabindex="-1" hidden>
+        <p><strong>El pago en línea aún no está conectado.</strong> Esta tienda es una demostración: tu bolsa se guarda solo en este navegador.</p>
+        <button class="text-btn" type="button" id="btn-aviso-ok">Entendido</button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Favoritos -->
+  <dialog class="drawer" id="favoritos" aria-labelledby="favoritos-titulo">
+    <div class="drawer-head">
+      <h2 class="drawer-title" id="favoritos-titulo">Favoritos</h2>
+      <button class="icon-btn" type="button" data-cerrar aria-label="Cerrar favoritos">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+    <div class="drawer-body" id="favoritos-contenido"></div>
+  </dialog>
+
+  <!-- Aviso breve -->
+  <div class="toast" id="aviso" role="status" aria-live="polite">
+    <span id="aviso-texto"></span>
+    <button class="text-btn on-dark" type="button" id="aviso-ver-bolsa" hidden>Ver bolsa</button>
+  </div>
+</body>
+</html>
