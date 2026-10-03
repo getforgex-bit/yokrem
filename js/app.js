@@ -64,14 +64,22 @@
     }
   };
 
+  function validarTalla(id, talla) {
+    var d = catalogo.get(id);
+    if (!d || !talla) return false;
+    if (TALLAS.indexOf(talla) !== -1) return true;
+    if (d.tipo === 'conjunto' && typeof talla === 'string' && talla.trim().length > 0) return true;
+    return false;
+  }
+
   // Valida lo que venga de localStorage (pudo ser editado o venir de otra versión)
   function limpiarBolsa(items) {
     if (!Array.isArray(items)) return [];
     return items
-      .filter(function (i) { return i && catalogo.has(i.id) && TALLAS.indexOf(i.talla) !== -1; })
+      .filter(function (i) { return i && catalogo.has(i.id) && validarTalla(i.id, i.talla); })
       .map(function (i) {
         var cantidad = Math.min(MAX_CANTIDAD, Math.max(1, parseInt(i.cantidad, 10) || 1));
-        return { id: i.id, talla: i.talla, cantidad: cantidad };
+        return { id: i.id, talla: String(i.talla), cantidad: cantidad };
       });
   }
   function limpiarFavoritos(ids) {
@@ -88,6 +96,7 @@
     favoritos: limpiarFavoritos(almacen.leer(CLAVE_FAVORITOS, []))
   };
   var actual = null; // producto abierto en la vista rápida
+  var vrCantidad = 1; // cantidad seleccionada en la vista rápida
 
   /* ---------- Elementos ---------- */
   var el = {
@@ -131,11 +140,20 @@
     vrDescripcion: $('#vr-descripcion'),
     vrColor: $('#vr-color'),
     vrPiezas: $('#vr-piezas'),
+    vrLegendTalla: $('#vr-legend-talla'),
+    vrBtnGuia: $('#vr-btn-guia'),
+    vrTextoGuia: $('#vr-texto-guia'),
+    vrGuiaPanel: $('#vr-guia-panel'),
     vrTallas: $('#vr-tallas'),
+    vrConjuntoTallas: $('#vr-conjunto-tallas'),
     vrNotaTalla: $('#vr-nota-talla'),
     vrError: $('#vr-error'),
+    vrQtyMenos: $('#vr-qty-menos'),
+    vrQtyVal: $('#vr-qty-val'),
+    vrQtyMas: $('#vr-qty-mas'),
     vrAgregar: $('#vr-agregar'),
     vrFavorito: $('#vr-favorito'),
+    vrCompartir: $('#vr-compartir'),
 
     aviso: $('#aviso'),
     avisoTexto: $('#aviso-texto'),
@@ -168,13 +186,11 @@
     return '' +
       '<li class="card">' +
         '<article aria-labelledby="t-' + p.id + '">' +
-          '<div class="card-media">' +
+          '<div class="card-media"' + (p.encuadre ? ' data-encuadre="' + esc(p.encuadre) + '"' : '') + '>' +
             '<button class="card-open" type="button" data-accion="ver" data-id="' + p.id + '" tabindex="-1" aria-label="Ver ' + nombre + '">' +
               '<img class="img-main" src="' + p.img + '" alt="" width="' + p.w + '" height="' + p.h + '" loading="lazy" decoding="async">' +
               '<img class="img-alt" src="' + p.look + '" alt="" loading="lazy" decoding="async">' +
             '</button>' +
-            '<span class="card-tag">' + esc(TEMPORADAS[p.temporada]) + '</span>' +
-            '<button class="fav-btn" type="button" data-accion="favorito" data-id="' + p.id + '" aria-pressed="' + esFavorito(p.id) + '" aria-label="Guardar ' + nombre + ' en favoritos">' + ICONO_CORAZON + '</button>' +
             '<div class="quick" aria-hidden="true">' +
               '<span class="quick-label">Añadir talla</span>' +
               TALLAS.map(function (t) {
@@ -185,7 +201,11 @@
           '<div class="card-info">' +
             '<h3 class="card-title" id="t-' + p.id + '"><button type="button" data-accion="ver" data-id="' + p.id + '">' + nombre + '</button></h3>' +
             '<p class="price">' + dinero(p.precio) + '</p>' +
-            '<span class="swatch" style="--sw:' + p.muestra + '" title="' + esc(p.color) + '"><span class="sr-only">Color: ' + esc(p.color) + '</span></span>' +
+            '<p class="card-meta">' +
+              '<span class="card-season">' + esc(TEMPORADAS[p.temporada]) + '</span>' +
+              '<span class="swatch" style="--sw:' + p.muestra + '" title="' + esc(p.color) + '"><span class="sr-only">Color: ' + esc(p.color) + '</span></span>' +
+            '</p>' +
+            '<button class="fav-btn" type="button" data-accion="favorito" data-id="' + p.id + '" aria-pressed="' + esFavorito(p.id) + '" aria-label="Guardar ' + nombre + ' en favoritos">' + ICONO_CORAZON + '</button>' +
           '</div>' +
         '</article>' +
       '</li>';
@@ -213,20 +233,20 @@
         return '<li><img src="' + p.img + '" alt="" loading="lazy" decoding="async"><span>' + esc(p.nombre) + '</span><span>' + dinero(p.precio) + '</span></li>';
       }).join('');
       return '' +
-        '<article class="look-card t-' + d.temporada + '">' +
+        '<article class="look-card" aria-labelledby="c-' + d.id + '">' +
           '<button class="look-card-media" type="button" data-accion="ver" data-id="' + d.id + '" aria-label="Ver ' + esc(d.nombre) + '">' +
             '<img src="' + d.img + '" alt="" width="' + d.w + '" height="' + d.h + '" loading="lazy" decoding="async">' +
-            '<span class="save-badge">Ahorra ' + dinero(d.ahorro) + '</span>' +
           '</button>' +
           '<div class="look-card-body">' +
-            '<p class="eyebrow">' + esc(TEMPORADAS[d.temporada]) + ' · ' + d.piezasData.length + ' piezas</p>' +
-            '<h3>' + esc(d.nombre) + '</h3>' +
+            '<h3 id="c-' + d.id + '">' + esc(d.nombre) + '</h3>' +
+            '<p class="look-meta">' + esc(TEMPORADAS[d.temporada]) + ' · ' + d.piezasData.length + ' piezas</p>' +
             '<ul class="look-items">' + piezas + '</ul>' +
-            '<div class="look-foot">' +
-              '<p class="look-total"><span class="sr-only">Precio por separado:</span><s>' + dinero(d.precioRegular) + '</s>' +
-              '<span class="sr-only">Precio del conjunto:</span><strong>' + dinero(d.precio) + '</strong></p>' +
-              '<button class="btn btn-dark btn-block" type="button" data-accion="ver" data-id="' + d.id + '">Elegir talla y añadir</button>' +
-            '</div>' +
+            '<dl class="look-ledger">' +
+              '<div><dt>Por separado</dt><dd><s>' + dinero(d.precioRegular) + '</s></dd></div>' +
+              '<div class="is-set"><dt>Conjunto</dt><dd>' + dinero(d.precio) + '</dd></div>' +
+              '<div class="is-save"><dt>Ahorras</dt><dd>' + dinero(d.ahorro) + '</dd></div>' +
+            '</dl>' +
+            '<button class="btn btn-dark" type="button" data-accion="ver" data-id="' + d.id + '">Elegir talla y añadir</button>' +
           '</div>' +
         '</article>';
     }).join('');
@@ -270,11 +290,22 @@
   }
 
   /* ---------- Vista rápida ---------- */
-  function abrirDetalle(id) {
+  function abrirDetalle(id, evitarSyncUrl) {
     var d = catalogo.get(id);
     if (!d) return;
     actual = d;
     var esConjunto = d.tipo === 'conjunto';
+
+    // Reiniciar selector de cantidad
+    vrCantidad = 1;
+    el.vrQtyVal.textContent = '1';
+    el.vrQtyMenos.disabled = true;
+    el.vrQtyMas.disabled = false;
+
+    // Reiniciar acordeón de guía de medidas
+    el.vrGuiaPanel.hidden = true;
+    el.vrBtnGuia.setAttribute('aria-expanded', 'false');
+    el.vrTextoGuia.textContent = 'Guía de medidas';
 
     el.vrTemporada.textContent = (esConjunto ? 'Conjunto · ' : 'Colección ') + TEMPORADAS[d.temporada];
     el.vrTitulo.textContent = d.nombre;
@@ -290,7 +321,39 @@
     el.vrPiezas.innerHTML = esConjunto
       ? d.piezasData.map(function (p) { return '<li><span>' + esc(p.nombre) + '</span><span>' + dinero(p.precio) + '</span></li>'; }).join('')
       : '';
-    el.vrNotaTalla.hidden = !esConjunto;
+
+    // Manejo de tallas
+    if (esConjunto) {
+      el.vrLegendTalla.textContent = 'Tallas del conjunto';
+      el.vrNotaTalla.hidden = false;
+      el.vrNotaTalla.textContent = 'Elige una talla rápida para todo el look o personaliza cada prenda:';
+
+      // Selector rápido general
+      el.vrTallas.innerHTML = TALLAS.map(function (t) {
+        return '<input type="radio" name="vr-talla-general" id="vr-talla-gen-' + t + '" value="' + t + '"><label for="vr-talla-gen-' + t + '">' + t + '</label>';
+      }).join('');
+
+      // Selector individual por prenda
+      el.vrConjuntoTallas.hidden = false;
+      el.vrConjuntoTallas.innerHTML = d.piezasData.map(function (p) {
+        return '<div class="set-piece-row" data-pieza="' + p.id + '">' +
+          '<div class="set-piece-head"><img class="set-piece-thumb" src="' + p.img + '" alt=""><span>' + esc(p.nombre) + '</span></div>' +
+          '<div class="size-opts size-opts-sm">' +
+            TALLAS.map(function (t) {
+              return '<input type="radio" name="vr-set-' + p.id + '" id="vr-set-' + p.id + '-' + t + '" value="' + t + '"><label for="vr-set-' + p.id + '-' + t + '">' + t + '</label>';
+            }).join('') +
+          '</div>' +
+        '</div>';
+      }).join('');
+    } else {
+      el.vrLegendTalla.textContent = 'Talla';
+      el.vrNotaTalla.hidden = true;
+      el.vrConjuntoTallas.hidden = true;
+      el.vrConjuntoTallas.innerHTML = '';
+      el.vrTallas.innerHTML = TALLAS.map(function (t) {
+        return '<input type="radio" name="vr-talla" id="vr-talla-' + t + '" value="' + t + '"><label for="vr-talla-' + t + '">' + t + '</label>';
+      }).join('');
+    }
 
     // Fotos: prenda + look de su temporada, o look + piezas del conjunto
     var fotos = esConjunto
@@ -307,12 +370,16 @@
       $$('[data-foto]', el.vrMiniaturas).forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
     };
 
-    el.vrTallas.innerHTML = TALLAS.map(function (t) {
-      return '<input type="radio" name="vr-talla" id="vr-talla-' + t + '" value="' + t + '"><label for="vr-talla-' + t + '">' + t + '</label>';
-    }).join('');
     el.vrError.hidden = true;
     el.vrAgregar.textContent = esConjunto ? 'Añadir conjunto a la bolsa' : 'Añadir a la bolsa';
     actualizarBotonFavoritoVR();
+
+    // Sincronizar URL para compartir (Deep Linking)
+    if (!evitarSyncUrl) {
+      try {
+        history.replaceState({ yokremPrenda: id }, '', '#prenda/' + id);
+      } catch (e) {}
+    }
 
     abrirDialogo(el.vr);
   }
@@ -329,27 +396,84 @@
     el.vrFavorito.textContent = fav ? 'Guardado en favoritos' : 'Guardar en favoritos';
   }
 
+  /* ---------- Compartir ---------- */
+  function compartirPrenda() {
+    if (!actual) return;
+    var url = window.location.origin + window.location.pathname + '#prenda/' + actual.id;
+    var titulo = actual.nombre + ' | YOKREM';
+    var texto = 'Descubre ' + actual.nombre + ' en YOKREM. Ropa que te define, confeccionada en Chiapas.';
+
+    if (navigator.share) {
+      navigator.share({
+        title: titulo,
+        text: texto,
+        url: url
+      }).catch(function (err) {
+        if (!err || err.name !== 'AbortError') {
+          copiarAlPortapapeles(url);
+        }
+      });
+    } else {
+      copiarAlPortapapeles(url);
+    }
+  }
+
+  function copiarAlPortapapeles(url) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(url).then(function () {
+        avisar('Enlace copiado al portapapeles.');
+      }).catch(function () {
+        fallbackCopiar(url);
+      });
+    } else {
+      fallbackCopiar(url);
+    }
+  }
+
+  function fallbackCopiar(url) {
+    var temp = document.createElement('input');
+    temp.value = url;
+    document.body.appendChild(temp);
+    temp.select();
+    try {
+      document.execCommand('copy');
+      avisar('Enlace copiado al portapapeles.');
+    } catch (e) {
+      avisar('Copia este enlace: ' + url);
+    }
+    document.body.removeChild(temp);
+  }
+
   /* ---------- Bolsa ---------- */
   function guardarBolsa() {
     almacen.guardar(CLAVE_BOLSA, estado.bolsa);
     pintarBolsa();
   }
 
-  function agregar(id, talla) {
+  function agregar(id, talla, cantidad) {
+    cantidad = Math.min(MAX_CANTIDAD, Math.max(1, parseInt(cantidad, 10) || 1));
     var d = catalogo.get(id);
-    if (!d || TALLAS.indexOf(talla) === -1) return;
+    if (!d || !validarTalla(id, talla)) return;
     var item = estado.bolsa.find(function (i) { return i.id === id && i.talla === talla; });
     if (item) {
       if (item.cantidad >= MAX_CANTIDAD) {
         avisar('Puedes llevar hasta ' + MAX_CANTIDAD + ' piezas por prenda y talla.');
         return;
       }
-      item.cantidad += 1;
+      item.cantidad = Math.min(MAX_CANTIDAD, item.cantidad + cantidad);
     } else {
-      estado.bolsa.push({ id: id, talla: talla, cantidad: 1 });
+      estado.bolsa.push({ id: id, talla: talla, cantidad: cantidad });
     }
     guardarBolsa();
-    avisar(d.nombre + ' · talla ' + talla + ' se añadió a tu bolsa.', true);
+
+    // Microinteracción visual en el icono de bolsa del encabezado
+    el.btnBolsa.classList.remove('bump');
+    void el.btnBolsa.offsetWidth;
+    el.btnBolsa.classList.add('bump');
+
+    var prefijo = cantidad > 1 ? cantidad + 'x ' : '';
+    var descTalla = talla.indexOf('·') !== -1 ? 'tallas ' + talla : 'talla ' + talla;
+    avisar(prefijo + d.nombre + ' · ' + descTalla + ' se añadió a tu bolsa.', true);
   }
 
   function cambiarCantidad(indice, delta) {
@@ -407,13 +531,14 @@
       var detalle = d.tipo === 'conjunto'
         ? d.piezasData.map(function (p) { return esc(p.nombre); }).join(' + ')
         : esc(d.color);
+      var descTalla = i.talla.indexOf('·') !== -1 ? 'Tallas: ' + esc(i.talla) : 'Talla ' + esc(i.talla);
       return '' +
         '<li class="line-item">' +
           '<img class="line-thumb" src="' + d.img + '" alt="" loading="lazy">' +
           '<div class="line-meta">' +
             '<span class="line-name">' + esc(d.nombre) + '</span>' +
             '<span class="line-sub">' + detalle + '</span>' +
-            '<span class="line-sub">Talla ' + i.talla + ' · ' + dinero(d.precio) + ' c/u</span>' +
+            '<span class="line-sub">' + descTalla + ' · ' + dinero(d.precio) + ' c/u</span>' +
             '<div class="line-row">' +
               '<div class="qty" role="group" aria-label="Cantidad de ' + esc(d.nombre) + '">' +
                 '<button type="button" data-accion="menos" data-indice="' + idx + '" aria-label="Quitar una"' + (i.cantidad <= 1 ? ' disabled' : '') + '>−</button>' +
@@ -587,18 +712,127 @@
     el.btnPagar.focus();
   });
 
-  el.vrTallas.addEventListener('change', function () { el.vrError.hidden = true; });
-  el.vrAgregar.addEventListener('click', function () {
-    var talla = $('input[name="vr-talla"]:checked', el.vrTallas);
-    if (!talla) {
-      el.vrError.hidden = false;
-      $('input', el.vrTallas).focus();
-      return;
+  // Acordeón de Guía de Medidas
+  if (el.vrBtnGuia) {
+    el.vrBtnGuia.addEventListener('click', function () {
+      var cerrado = el.vrGuiaPanel.hidden;
+      el.vrGuiaPanel.hidden = !cerrado;
+      el.vrBtnGuia.setAttribute('aria-expanded', String(cerrado));
+      el.vrTextoGuia.textContent = cerrado ? 'Ocultar medidas' : 'Guía de medidas';
+    });
+  }
+
+  // Selector de cantidad en vista rápida
+  if (el.vrQtyMenos && el.vrQtyMas) {
+    el.vrQtyMenos.addEventListener('click', function () {
+      if (vrCantidad > 1) {
+        vrCantidad--;
+        el.vrQtyVal.textContent = vrCantidad;
+        el.vrQtyMenos.disabled = vrCantidad <= 1;
+        el.vrQtyMas.disabled = false;
+      }
+    });
+    el.vrQtyMas.addEventListener('click', function () {
+      if (vrCantidad < MAX_CANTIDAD) {
+        vrCantidad++;
+        el.vrQtyVal.textContent = vrCantidad;
+        el.vrQtyMas.disabled = vrCantidad >= MAX_CANTIDAD;
+        el.vrQtyMenos.disabled = false;
+      }
+    });
+  }
+
+  // Compartir prenda
+  if (el.vrCompartir) {
+    el.vrCompartir.addEventListener('click', compartirPrenda);
+  }
+
+  // Selección de tallas
+  el.vrTallas.addEventListener('change', function (e) {
+    el.vrError.hidden = true;
+    if (actual && actual.tipo === 'conjunto' && e.target.name === 'vr-talla-general') {
+      var val = e.target.value;
+      $$('.set-piece-row', el.vrConjuntoTallas).forEach(function (fila) {
+        var pId = fila.dataset.pieza;
+        var r = $('#vr-set-' + pId + '-' + val, fila);
+        if (r) r.checked = true;
+      });
     }
-    el.vr.close();
-    agregar(actual.id, talla.value);
   });
+  if (el.vrConjuntoTallas) {
+    el.vrConjuntoTallas.addEventListener('change', function () {
+      el.vrError.hidden = true;
+    });
+  }
+
+  // Añadir a la bolsa desde vista rápida
+  el.vrAgregar.addEventListener('click', function () {
+    if (!actual) return;
+    if (actual.tipo === 'conjunto') {
+      var piezas = actual.piezasData;
+      var seleccionadas = [];
+      var falta = false;
+      var todasIguales = true;
+      var primeraTalla = null;
+
+      piezas.forEach(function (p) {
+        var opt = $('input[name="vr-set-' + p.id + '"]:checked', el.vrConjuntoTallas);
+        if (!opt) {
+          falta = true;
+        } else {
+          seleccionadas.push({ nombre: p.nombre, talla: opt.value });
+          if (primeraTalla === null) primeraTalla = opt.value;
+          else if (primeraTalla !== opt.value) todasIguales = false;
+        }
+      });
+
+      if (falta) {
+        el.vrError.textContent = 'Elige la talla de cada prenda para añadir el conjunto.';
+        el.vrError.hidden = false;
+        return;
+      }
+
+      var resumenTalla = todasIguales
+        ? primeraTalla
+        : seleccionadas.map(function (s) { return s.nombre.split(' ')[0] + ': ' + s.talla; }).join(' · ');
+
+      el.vr.close();
+      agregar(actual.id, resumenTalla, vrCantidad);
+    } else {
+      var talla = $('input[name="vr-talla"]:checked', el.vrTallas);
+      if (!talla) {
+        el.vrError.textContent = 'Elige una talla para añadir a la bolsa.';
+        el.vrError.hidden = false;
+        $('input', el.vrTallas).focus();
+        return;
+      }
+      el.vr.close();
+      agregar(actual.id, talla.value, vrCantidad);
+    }
+  });
+
   el.vrFavorito.addEventListener('click', function () { if (actual) alternarFavorito(actual.id); });
+
+  // Limpiar URL al cerrar la vista rápida
+  el.vr.addEventListener('close', function () {
+    if (window.location.hash.indexOf('#prenda/') === 0) {
+      try {
+        history.replaceState(null, '', window.location.pathname + window.location.search);
+      } catch (e) {}
+    }
+  });
+
+  // Deep linking: sincronizar al cambiar hash en el navegador
+  function verificarHash(desdeCarga) {
+    var hash = window.location.hash;
+    if (hash.indexOf('#prenda/') === 0) {
+      var id = hash.replace('#prenda/', '').trim();
+      if (catalogo.has(id)) {
+        abrirDetalle(id, true);
+      }
+    }
+  }
+  window.addEventListener('hashchange', function () { verificarHash(false); });
 
   /* ---------- Portada en video ---------- */
   var hero = $('#inicio');
@@ -606,6 +840,9 @@
   var video = $('#hero-video');
   var btnVideo = $('#btn-video');
   var btnVideoTexto = $('#btn-video-texto');
+  var btnAudio = $('#btn-audio');
+  var btnAudioTexto = $('#btn-audio-texto');
+  var playerNote = $('#player-note');
   var pausadoPorUsuario = reducirMovimiento;
   var heroVisible = true;
 
@@ -614,6 +851,20 @@
     btnVideo.classList.toggle('is-paused', pausado);
     btnVideoTexto.textContent = pausado ? 'Reproducir video' : 'Pausar video';
   }
+  function pintarBotonAudio() {
+    if (!btnAudio) return;
+    var conAudio = !video.muted && video.volume > 0;
+    btnAudio.classList.toggle('is-unmuted', conAudio);
+    btnAudio.setAttribute('aria-pressed', conAudio ? 'true' : 'false');
+    btnAudio.setAttribute('aria-label', conAudio ? 'Silenciar audio del video' : 'Activar audio del video');
+    btnAudio.setAttribute('title', conAudio ? 'Silenciar audio' : 'Activar audio');
+    if (btnAudioTexto) {
+      btnAudioTexto.textContent = conAudio ? 'Silenciar' : 'Activar audio';
+    }
+    if (playerNote) {
+      playerNote.textContent = conAudio ? 'Audio activado' : 'Audio desactivado';
+    }
+  }
   function reproducir() {
     var promesa = video.play();
     if (promesa && promesa.catch) promesa.catch(pintarBotonVideo);
@@ -621,14 +872,32 @@
 
   if (video) {
     btnVideo.hidden = false;
+    if (btnAudio) btnAudio.hidden = false;
     video.addEventListener('play', pintarBotonVideo);
     video.addEventListener('pause', pintarBotonVideo);
+    video.addEventListener('volumechange', pintarBotonAudio);
     btnVideo.addEventListener('click', function () {
       pausadoPorUsuario = !video.paused;
       if (video.paused) reproducir(); else video.pause();
     });
+    if (btnAudio) {
+      btnAudio.addEventListener('click', function () {
+        if (video.muted || video.volume === 0) {
+          video.muted = false;
+          video.volume = 1;
+          if (video.paused) {
+            pausadoPorUsuario = false;
+            reproducir();
+          }
+        } else {
+          video.muted = true;
+        }
+        pintarBotonAudio();
+      });
+    }
     if (!pausadoPorUsuario) reproducir();
     pintarBotonVideo();
+    pintarBotonAudio();
 
     // Ahorra batería: detiene el video cuando la portada sale de la pantalla
     if ('IntersectionObserver' in window) {
@@ -664,6 +933,7 @@
   pintarConjuntos();
   pintarBolsa();
   pintarFavoritos();
+  verificarHash(true);
 
   /* ---------- Prendas agregadas desde Scan-bar ----------
      La categoría en Scan-bar es la temporada (verano, otono, invierno); las variantes, las tallas
@@ -676,13 +946,15 @@
       if (!ok && window.console) console.warn('Scan-bar: ' + x.sku + ' se omite (la categoría debe ser verano, otono o invierno)');
       return ok;
     }).map(function (x) {
-      var look = 'img/look-' + x.category + '.webp';
-      var muestra = String((x.attrs && x.attrs.muestra) || '');
+      var attrs = x.attrs || {};
+      var muestra = String(attrs.muestra || '');
       return {
         id: x.sku, nombre: x.name, temporada: x.category, precio: x.priceCents / 100,
-        color: String((x.attrs && x.attrs.color) || 'Único'),
+        color: String(attrs.color || 'Único'),
         muestra: /^#[0-9a-f]{3,8}$/i.test(muestra) ? muestra : '#D9D4CC',
-        img: urlSegura(x.imageUrl) || look, w: 800, h: 800, look: look,
+        img: urlSegura(x.imageUrl) || 'img/look-' + x.category + '.webp', w: 800, h: 800,
+        look: 'img/modelo-' + x.category + '.webp',
+        encuadre: ['superior', 'cintura', 'inferior'].indexOf(attrs.encuadre) !== -1 ? attrs.encuadre : 'superior',
         descripcion: x.description || ''
       };
     });

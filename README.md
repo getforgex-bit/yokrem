@@ -35,13 +35,14 @@ _headers            Cabeceras HTTP para Cloudflare Pages
 
 ## Qué incluye
 
-- Portada cinemática con video en bucle (`img/hero-1080.mp4` y `img/hero-720.mp4` para móvil, póster `img/hero-poster.webp`), sin audio, con botón de pausa; no se reproduce sola si el sistema pide "reducir movimiento" y se detiene al salir de pantalla.
+- Portada cinemática con video en bucle (`img/hero-1080.mp4` y `img/hero-720.mp4` para móvil, póster `img/hero-poster.webp`), inicia silenciado por confort auditivo con botón para pausar y botón para activar/silenciar el audio; no se reproduce sola si el sistema pide "reducir movimiento" y se detiene al salir de pantalla.
 - Tarjeta flotante con los tres lookbooks de temporada (Verano, Otoño, Invierno) que filtran la tienda.
 - Catálogo con filtro por temporada, orden por precio y búsqueda (ignora acentos).
 - Al pasar el cursor por una prenda se ve el look completo y se puede añadir por talla.
-- Vista rápida con selección de talla obligatoria.
-- Conjuntos completos: el ahorro se calcula solo (Verano $198, Otoño $447, Invierno $250).
-- Bolsa con cantidades, subtotal, ahorro y total; favoritos. Ambos se guardan en el navegador (localStorage).
+- Vista rápida con acordeón interactivo de guía de medidas (en cm), selector de cantidad (1 a 10), botón para compartir la prenda (Web Share API en móviles o portapapeles en escritorio) y selección de talla obligatoria.
+- Enlaces directos (Deep Linking) mediante URL (`#prenda/{id}`) para compartir prendas o conjuntos individuales que abren automáticamente el detalle.
+- Conjuntos completos con selector rápido de talla general o personalización de talla independiente por cada pieza del look (el ahorro se calcula solo: Verano $198, Otoño $447, Invierno $250).
+- Bolsa con cantidades, subtotal, ahorro y total; favoritos; microinteracción de pulso en el icono de bolsa superior. Ambos se guardan en el navegador (localStorage).
 - Historia, origen del nombre, misión, visión, valores y organigrama.
 - Diseño adaptable a móvil, navegación con teclado y respeto a "reducir movimiento".
 
