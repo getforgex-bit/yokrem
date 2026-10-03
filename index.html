@@ -99,7 +99,18 @@
               <svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 2.3 13 8l-8.5 5.7z"/></svg>
               <span id="btn-video-texto">Pausar video</span>
             </button>
-            <p class="player-note">Audio desactivado por confort auditivo</p>
+            <button class="player-audio-btn" type="button" id="btn-audio" aria-label="Activar audio del video" title="Activar audio" aria-pressed="false" hidden>
+              <svg class="i-sound-off" viewBox="0 0 16 16" aria-hidden="true">
+                <path d="M6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06zm7.137 2.096a.5.5 0 0 1 0 .708L12.207 8l1.647 1.646a.5.5 0 0 1-.708.708L11.5 8.707l-1.646 1.647a.5.5 0 0 1-.708-.708L10.793 8 9.146 6.354a.5.5 0 1 1 .708-.708L11.5 7.293l1.646-1.647a.5.5 0 0 1 .708 0z"/>
+              </svg>
+              <svg class="i-sound-on" viewBox="0 0 16 16" aria-hidden="true">
+                <path d="M11.536 14.01A8.47 8.47 0 0 0 14.026 8a8.47 8.47 0 0 0-2.49-6.01l-.708.707A7.48 7.48 0 0 1 13.025 8c0 2.071-.84 3.946-2.197 5.303z"/>
+                <path d="M10.121 12.596A6.48 6.48 0 0 0 12.025 8a6.48 6.48 0 0 0-1.904-4.596l-.707.707A5.48 5.48 0 0 1 11.025 8a5.48 5.48 0 0 1-1.61 3.89z"/>
+                <path d="M6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06z"/>
+              </svg>
+              <span class="sr-only" id="btn-audio-texto">Activar audio</span>
+            </button>
+            <p class="player-note" id="player-note">Audio desactivado</p>
           </div>
         </div>
 
@@ -145,11 +156,7 @@
     <section class="section shop" id="tienda" aria-labelledby="tienda-titulo">
       <div class="wrap">
         <div class="section-head">
-          <div>
-            <p class="eyebrow">Catálogo</p>
-            <h2 class="h2" id="tienda-titulo">Tienda</h2>
-          </div>
-          <p class="result-count" id="conteo-resultados" aria-live="polite">8 prendas</p>
+          <h2 class="h2" id="tienda-titulo">Tienda</h2>
         </div>
 
         <div class="toolbar">
@@ -159,13 +166,16 @@
             <button class="chip" type="button" data-temporada="otono" aria-pressed="false">Otoño</button>
             <button class="chip" type="button" data-temporada="invierno" aria-pressed="false">Invierno</button>
           </div>
-          <div class="sort">
-            <label for="orden">Ordenar por</label>
-            <select id="orden">
-              <option value="recomendados">Recomendados</option>
-              <option value="precio-asc">Precio: menor a mayor</option>
-              <option value="precio-desc">Precio: mayor a menor</option>
-            </select>
+          <div class="toolbar-end">
+            <p class="result-count" id="conteo-resultados" aria-live="polite">8 prendas</p>
+            <div class="sort">
+              <label for="orden">Ordenar por</label>
+              <select id="orden">
+                <option value="recomendados">Recomendados</option>
+                <option value="precio-asc">Precio: menor a mayor</option>
+                <option value="precio-desc">Precio: mayor a menor</option>
+              </select>
+            </div>
           </div>
         </div>
 
@@ -190,10 +200,9 @@
       <div class="wrap">
         <div class="section-head">
           <div>
-            <p class="eyebrow">Compra el look</p>
             <h2 class="h2" id="conjuntos-titulo">Conjuntos completos</h2>
+            <p class="section-note">Llévate el conjunto completo y paga menos que por las piezas sueltas.</p>
           </div>
-          <p class="section-note">Llévate el conjunto completo y paga menos que por las piezas sueltas.</p>
         </div>
         <div class="looks-grid" id="lista-conjuntos"></div>
       </div>
@@ -369,14 +378,82 @@
         <p class="qv-color" id="vr-color"></p>
         <ul class="qv-pieces" id="vr-piezas" hidden></ul>
         <fieldset class="sizes">
-          <legend>Talla</legend>
+          <div class="sizes-header">
+            <legend id="vr-legend-talla">Talla</legend>
+            <button class="text-btn btn-guia-toggle" type="button" id="vr-btn-guia" aria-expanded="false" aria-controls="vr-guia-panel">
+              <svg viewBox="0 0 24 24" aria-hidden="true" class="i-ruler"><path d="M21.3 8.7 15.3 2.7c-.4-.4-1-.4-1.4 0l-11.2 11.2c-.4.4-.4 1 0 1.4l6 6c.4.4 1 .4 1.4 0l11.2-11.2c.4-.4.4-1 0-1.4z"/><path d="m14.5 3.5 2 2M11.5 6.5l3 3M8.5 9.5l2 2M5.5 12.5l3 3"/></svg>
+              <span id="vr-texto-guia">Guía de medidas</span>
+            </button>
+          </div>
+
+          <!-- Acordeón de Guía de Medidas (en cm) -->
+          <div class="guia-tallas-panel" id="vr-guia-panel" hidden>
+            <div class="guia-table-wrap">
+              <table class="guia-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Talla</th>
+                    <th scope="col">Pecho</th>
+                    <th scope="col">Cintura</th>
+                    <th scope="col">Cadera</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">CH</th>
+                    <td>86–90 cm</td>
+                    <td>68–72 cm</td>
+                    <td>92–96 cm</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">M</th>
+                    <td>92–96 cm</td>
+                    <td>74–78 cm</td>
+                    <td>98–102 cm</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">G</th>
+                    <td>98–102 cm</td>
+                    <td>80–84 cm</td>
+                    <td>104–108 cm</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">EG</th>
+                    <td>104–110 cm</td>
+                    <td>86–92 cm</td>
+                    <td>110–116 cm</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="guia-tip">Medidas corporales de referencia. Corte regular confeccionado en taller propio en Chiapas.</p>
+          </div>
+
           <div class="size-opts" id="vr-tallas"></div>
-          <p class="sizes-note" id="vr-nota-talla" hidden>La talla elegida se aplica a todas las piezas del conjunto.</p>
+          <div class="set-sizes-list" id="vr-conjunto-tallas" hidden></div>
+          <p class="sizes-note" id="vr-nota-talla" hidden>Elige la talla para cada prenda del conjunto.</p>
         </fieldset>
         <p class="form-error" id="vr-error" role="alert" hidden>Elige una talla para añadir a la bolsa.</p>
+
+        <!-- Selector de cantidad -->
+        <div class="qv-qty-row">
+          <span class="qv-qty-label" id="vr-lbl-cant">Cantidad</span>
+          <div class="qty" role="group" aria-labelledby="vr-lbl-cant">
+            <button type="button" id="vr-qty-menos" aria-label="Disminuir cantidad" disabled>−</button>
+            <output id="vr-qty-val" aria-live="polite">1</output>
+            <button type="button" id="vr-qty-mas" aria-label="Aumentar cantidad">+</button>
+          </div>
+        </div>
+
         <div class="qv-actions">
           <button class="btn btn-dark btn-block" type="button" id="vr-agregar">Añadir a la bolsa</button>
-          <button class="btn btn-line btn-block" type="button" id="vr-favorito" aria-pressed="false">Guardar en favoritos</button>
+          <div class="qv-sub-actions">
+            <button class="btn btn-line btn-half" type="button" id="vr-favorito" aria-pressed="false">Guardar en favoritos</button>
+            <button class="btn btn-line btn-half" type="button" id="vr-compartir" aria-label="Compartir esta prenda">
+              <svg viewBox="0 0 24 24" aria-hidden="true" class="i-share"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+              <span>Compartir</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>

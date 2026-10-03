@@ -1,0 +1,587 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-23T21:32:58.406Z",
+  "title": "Design System: YOKREM",
+  "extensions": {
+    "colorMeta": {
+      "gold": {
+        "role": "primary",
+        "displayName": "Oro viejo",
+        "canonical": "oklch(66.1% 0.111 77.5)",
+        "tonalRamp": [
+          "oklch(15% 0.067 77.5)",
+          "oklch(26.4% 0.111 77.5)",
+          "oklch(37.9% 0.111 77.5)",
+          "oklch(49.3% 0.111 77.5)",
+          "oklch(60.7% 0.111 77.5)",
+          "oklch(72.1% 0.111 77.5)",
+          "oklch(83.6% 0.073 77.5)",
+          "oklch(95% 0.022 77.5)"
+        ]
+      },
+      "gold-ink": {
+        "role": "primary",
+        "displayName": "Oro viejo tinta",
+        "canonical": "oklch(52.1% 0.094 79.1)",
+        "tonalRamp": [
+          "oklch(15% 0.056 79.1)",
+          "oklch(26.4% 0.094 79.1)",
+          "oklch(37.9% 0.094 79.1)",
+          "oklch(49.3% 0.094 79.1)",
+          "oklch(60.7% 0.094 79.1)",
+          "oklch(72.1% 0.094 79.1)",
+          "oklch(83.6% 0.062 79.1)",
+          "oklch(95% 0.019 79.1)"
+        ]
+      },
+      "gold-light": {
+        "role": "primary",
+        "displayName": "Oro claro",
+        "canonical": "oklch(83.7% 0.097 89.2)",
+        "tonalRamp": [
+          "oklch(15% 0.058 89.2)",
+          "oklch(26.4% 0.097 89.2)",
+          "oklch(37.9% 0.097 89.2)",
+          "oklch(49.3% 0.097 89.2)",
+          "oklch(60.7% 0.097 89.2)",
+          "oklch(72.1% 0.097 89.2)",
+          "oklch(83.6% 0.064 89.2)",
+          "oklch(95% 0.019 89.2)"
+        ]
+      },
+      "sale": {
+        "role": "secondary",
+        "displayName": "Rojo ahorro",
+        "canonical": "oklch(53% 0.207 22.3)",
+        "tonalRamp": [
+          "oklch(15% 0.124 22.3)",
+          "oklch(26.4% 0.207 22.3)",
+          "oklch(37.9% 0.207 22.3)",
+          "oklch(49.3% 0.207 22.3)",
+          "oklch(60.7% 0.207 22.3)",
+          "oklch(72.1% 0.207 22.3)",
+          "oklch(83.6% 0.136 22.3)",
+          "oklch(95% 0.041 22.3)"
+        ]
+      },
+      "t-verano": {
+        "role": "tertiary",
+        "displayName": "Tinte Verano",
+        "canonical": "oklch(94.3% 0.006 223.5)",
+        "tonalRamp": [
+          "oklch(15% 0.004 223.5)",
+          "oklch(26.4% 0.006 223.5)",
+          "oklch(37.9% 0.006 223.5)",
+          "oklch(49.3% 0.006 223.5)",
+          "oklch(60.7% 0.006 223.5)",
+          "oklch(72.1% 0.006 223.5)",
+          "oklch(83.6% 0.004 223.5)",
+          "oklch(95% 0.001 223.5)"
+        ]
+      },
+      "t-otono": {
+        "role": "tertiary",
+        "displayName": "Tinte Otoño",
+        "canonical": "oklch(93.1% 0.017 76.1)",
+        "tonalRamp": [
+          "oklch(15% 0.01 76.1)",
+          "oklch(26.4% 0.017 76.1)",
+          "oklch(37.9% 0.017 76.1)",
+          "oklch(49.3% 0.017 76.1)",
+          "oklch(60.7% 0.017 76.1)",
+          "oklch(72.1% 0.017 76.1)",
+          "oklch(83.6% 0.011 76.1)",
+          "oklch(95% 0.003 76.1)"
+        ]
+      },
+      "t-invierno": {
+        "role": "tertiary",
+        "displayName": "Tinte Invierno",
+        "canonical": "oklch(92.8% 0.006 264.5)",
+        "tonalRamp": [
+          "oklch(15% 0.003 264.5)",
+          "oklch(26.4% 0.006 264.5)",
+          "oklch(37.9% 0.006 264.5)",
+          "oklch(49.3% 0.006 264.5)",
+          "oklch(60.7% 0.006 264.5)",
+          "oklch(72.1% 0.006 264.5)",
+          "oklch(83.6% 0.004 264.5)",
+          "oklch(95% 0.001 264.5)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Negro carbón",
+        "canonical": "oklch(19.1% 0 0)",
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(26.4% 0 0)",
+          "oklch(37.9% 0 0)",
+          "oklch(49.3% 0 0)",
+          "oklch(60.7% 0 0)",
+          "oklch(72.1% 0 0)",
+          "oklch(83.6% 0 0)",
+          "oklch(95% 0 0)"
+        ]
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Tinta suave",
+        "canonical": "oklch(29.4% 0.008 84.6)",
+        "tonalRamp": [
+          "oklch(15% 0.005 84.6)",
+          "oklch(26.4% 0.008 84.6)",
+          "oklch(37.9% 0.008 84.6)",
+          "oklch(49.3% 0.008 84.6)",
+          "oklch(60.7% 0.008 84.6)",
+          "oklch(72.1% 0.008 84.6)",
+          "oklch(83.6% 0.005 84.6)",
+          "oklch(95% 0.002 84.6)"
+        ]
+      },
+      "mute": {
+        "role": "neutral",
+        "displayName": "Gris humo",
+        "canonical": "oklch(47.8% 0.008 97.5)",
+        "tonalRamp": [
+          "oklch(15% 0.005 97.5)",
+          "oklch(26.4% 0.008 97.5)",
+          "oklch(37.9% 0.008 97.5)",
+          "oklch(49.3% 0.008 97.5)",
+          "oklch(60.7% 0.008 97.5)",
+          "oklch(72.1% 0.008 97.5)",
+          "oklch(83.6% 0.005 97.5)",
+          "oklch(95% 0.002 97.5)"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Línea hueso",
+        "canonical": "oklch(91.3% 0.007 88.6)",
+        "tonalRamp": [
+          "oklch(15% 0.004 88.6)",
+          "oklch(26.4% 0.007 88.6)",
+          "oklch(37.9% 0.007 88.6)",
+          "oklch(49.3% 0.007 88.6)",
+          "oklch(60.7% 0.007 88.6)",
+          "oklch(72.1% 0.007 88.6)",
+          "oklch(83.6% 0.005 88.6)",
+          "oklch(95% 0.001 88.6)"
+        ]
+      },
+      "tile": {
+        "role": "neutral",
+        "displayName": "Gris hueso",
+        "canonical": "oklch(96.1% 0.004 91.4)",
+        "tonalRamp": [
+          "oklch(15% 0.002 91.4)",
+          "oklch(26.4% 0.004 91.4)",
+          "oklch(37.9% 0.004 91.4)",
+          "oklch(49.3% 0.004 91.4)",
+          "oklch(60.7% 0.004 91.4)",
+          "oklch(72.1% 0.004 91.4)",
+          "oklch(83.6% 0.003 91.4)",
+          "oklch(95% 0.001 91.4)"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Papel",
+        "canonical": "oklch(100% 0 0)",
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(26.4% 0 0)",
+          "oklch(37.9% 0 0)",
+          "oklch(49.3% 0 0)",
+          "oklch(60.7% 0 0)",
+          "oklch(72.1% 0 0)",
+          "oklch(83.6% 0 0)",
+          "oklch(95% 0 0)"
+        ]
+      },
+      "on-ink": {
+        "role": "neutral",
+        "displayName": "Blanco sobre negro",
+        "canonical": "oklch(100% 0 0)",
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(26.4% 0 0)",
+          "oklch(37.9% 0 0)",
+          "oklch(49.3% 0 0)",
+          "oklch(60.7% 0 0)",
+          "oklch(72.1% 0 0)",
+          "oklch(83.6% 0 0)",
+          "oklch(95% 0 0)"
+        ]
+      },
+      "on-ink-mute": {
+        "role": "neutral",
+        "displayName": "Ceniza",
+        "canonical": "oklch(78.9% 0.012 89.7)",
+        "tonalRamp": [
+          "oklch(15% 0.007 89.7)",
+          "oklch(26.4% 0.012 89.7)",
+          "oklch(37.9% 0.012 89.7)",
+          "oklch(49.3% 0.012 89.7)",
+          "oklch(60.7% 0.012 89.7)",
+          "oklch(72.1% 0.012 89.7)",
+          "oklch(83.6% 0.008 89.7)",
+          "oklch(95% 0.002 89.7)"
+        ]
+      },
+      "hero-bg": {
+        "role": "neutral",
+        "displayName": "Negro portada",
+        "canonical": "oklch(15.4% 0.002 106.6)",
+        "tonalRamp": [
+          "oklch(15% 0.001 106.6)",
+          "oklch(26.4% 0.002 106.6)",
+          "oklch(37.9% 0.002 106.6)",
+          "oklch(49.3% 0.002 106.6)",
+          "oklch(60.7% 0.002 106.6)",
+          "oklch(72.1% 0.002 106.6)",
+          "oklch(83.6% 0.001 106.6)",
+          "oklch(95% 0 106.6)"
+        ]
+      },
+      "glass": {
+        "role": "neutral",
+        "displayName": "Cristal ahumado",
+        "canonical": "rgba(14, 14, 13, 0.46)",
+        "tonalRamp": [
+          "oklch(15% 0.001 106.6)",
+          "oklch(26.4% 0.002 106.6)",
+          "oklch(37.9% 0.002 106.6)",
+          "oklch(49.3% 0.002 106.6)",
+          "oklch(60.7% 0.002 106.6)",
+          "oklch(72.1% 0.002 106.6)",
+          "oklch(83.6% 0.001 106.6)",
+          "oklch(95% 0 106.6)"
+        ]
+      },
+      "glass-line": {
+        "role": "neutral",
+        "displayName": "Filo de cristal",
+        "canonical": "rgba(255, 255, 255, 0.18)",
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(26.4% 0 0)",
+          "oklch(37.9% 0 0)",
+          "oklch(49.3% 0 0)",
+          "oklch(60.7% 0 0)",
+          "oklch(72.1% 0 0)",
+          "oklch(83.6% 0 0)",
+          "oklch(95% 0 0)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Solo el titular de portada; segunda línea en cursiva con degradado dorado."
+      },
+      "headline": {
+        "displayName": "Titular de sección",
+        "purpose": "Títulos de sección: Tienda, Conjuntos completos."
+      },
+      "title": {
+        "displayName": "Título",
+        "purpose": "Nombre de conjunto, título de vista rápida, menú móvil."
+      },
+      "statement": {
+        "displayName": "Declaración",
+        "purpose": "Misión y visión en Bodoni redonda; valores a mayor tamaño alternando cursiva."
+      },
+      "body": {
+        "displayName": "Cuerpo",
+        "purpose": "Interfaz y textos; relatos largos a 16px y 62ch."
+      },
+      "lead": {
+        "displayName": "Entradilla",
+        "purpose": "Texto de apoyo del titular de portada, 44ch máximo."
+      },
+      "label": {
+        "displayName": "Etiqueta",
+        "purpose": "Antetítulos en mayúsculas espaciadas."
+      },
+      "button": {
+        "displayName": "Botón",
+        "purpose": "Botones de la tienda."
+      },
+      "button-caps": {
+        "displayName": "Botón de portada",
+        "purpose": "Botones en mayúsculas sobre la portada oscura."
+      }
+    },
+    "gradients": [
+      {
+        "name": "titular-dorado",
+        "value": "linear-gradient(100deg, #B8893A 0%, #E3C77E 42%, #F4E3B4 58%, #C99B4A 100%)",
+        "purpose": "Segunda línea en cursiva del titular de portada, recortado al texto. Único degradado en uso."
+      }
+    ],
+    "shadows": [
+      {
+        "name": "anillo-muestra",
+        "value": "inset 0 0 0 1px rgba(20, 20, 20, .22)",
+        "purpose": "Contorno interior del círculo de color; no es elevación."
+      },
+      {
+        "name": "halo-titular",
+        "value": "0 2px 30px rgba(0, 0, 0, .25)",
+        "purpose": "text-shadow del titular de portada sobre el video; no es elevación."
+      }
+    ],
+    "overlays": [
+      {
+        "name": "velo-dialogo",
+        "value": "rgba(20, 20, 20, .45)",
+        "purpose": "Fondo detrás de cajones y modal."
+      },
+      {
+        "name": "cristal-portada",
+        "value": "rgba(14, 14, 13, .46) + blur(16px) saturate(1.2)",
+        "purpose": "Paneles sobre el video."
+      },
+      {
+        "name": "cristal-encabezado",
+        "value": "rgba(12, 12, 11, .8) + blur(12px) saturate(1.2)",
+        "purpose": "Encabezado al desplazarse sobre la portada."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease",
+        "value": "cubic-bezier(.2, .7, .2, 1)",
+        "purpose": "Curva única del sistema para entradas, bandejas y zoom de imagen."
+      },
+      {
+        "name": "estado",
+        "value": ".15s–.2s",
+        "purpose": "Cambios de color y borde en botones, chips y tallas."
+      },
+      {
+        "name": "interfaz",
+        "value": ".28s–.35s",
+        "purpose": "Bandeja de tallas, cajones, modal, aviso, fundido de imagen."
+      },
+      {
+        "name": "imagen",
+        "value": ".8s",
+        "purpose": "Zoom lento de fotos al pasar el cursor (1.03–1.05)."
+      },
+      {
+        "name": "entrada-portada",
+        "value": ".9s, escalonado 80ms",
+        "purpose": "Texto y tarjeta de portada suben 18px al cargar."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "xs",
+        "value": "420px"
+      },
+      {
+        "name": "sm",
+        "value": "560px"
+      },
+      {
+        "name": "footer",
+        "value": "640px"
+      },
+      {
+        "name": "grid-4",
+        "value": "720px (min-width)"
+      },
+      {
+        "name": "md",
+        "value": "760px"
+      },
+      {
+        "name": "story",
+        "value": "860px"
+      },
+      {
+        "name": "nav",
+        "value": "960px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Botón sólido",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Acción principal de la tienda: añadir a la bolsa, continuar al pago.",
+      "html": "<button class=\"ds-btn-dark\" type=\"button\">Añadir a la bolsa</button>",
+      "css": ".ds-btn-dark{display:inline-flex;align-items:center;justify-content:center;border-radius:0;font-family:var(--f-ui, 'Jost', 'Futura', sans-serif);font-weight:500;text-decoration:none;cursor:pointer;transition:background-color .2s,color .2s,border-color .2s;min-height:48px;padding:0 28px;border:1px solid var(--ink,#141414);background:var(--ink,#141414);color:var(--on-ink,#fff);font-size:14px;letter-spacing:.03em}.ds-btn-dark:hover{background:var(--ink-soft,#2E2C28)}.ds-btn-dark:focus-visible{outline:2px solid var(--ink,#141414);outline-offset:3px}"
+    },
+    {
+      "name": "Botón de línea",
+      "kind": "button",
+      "refersTo": "button-line",
+      "description": "Acción secundaria y conmutadores: guardar en favoritos, ver todas las prendas.",
+      "html": "<button class=\"ds-btn-line\" type=\"button\" aria-pressed=\"false\">Guardar en favoritos</button>",
+      "css": ".ds-btn-line{display:inline-flex;align-items:center;justify-content:center;border-radius:0;font-family:var(--f-ui, 'Jost', 'Futura', sans-serif);font-weight:500;text-decoration:none;cursor:pointer;transition:background-color .2s,color .2s,border-color .2s;min-height:48px;padding:0 28px;border:1px solid var(--ink,#141414);background:transparent;color:var(--ink,#141414);font-size:14px;letter-spacing:.03em}.ds-btn-line:hover,.ds-btn-line[aria-pressed=\"true\"]{background:var(--ink,#141414);color:var(--on-ink,#fff)}.ds-btn-line:focus-visible{outline:2px solid var(--ink,#141414);outline-offset:3px}"
+    },
+    {
+      "name": "Botón dorado de portada",
+      "kind": "button",
+      "refersTo": "button-gold",
+      "description": "La única acción dorada del sitio; solo sobre la portada oscura.",
+      "html": "<div class=\"ds-stage-dark\"><a class=\"ds-btn-gold\" href=\"#tienda\">Comprar colección</a></div>",
+      "css": ".ds-stage-dark{padding:24px;background:var(--hero-bg,#0C0C0B)}.ds-btn-gold{display:inline-flex;align-items:center;justify-content:center;border-radius:0;font-family:var(--f-ui, 'Jost', 'Futura', sans-serif);font-weight:500;text-decoration:none;cursor:pointer;transition:background-color .2s,color .2s,border-color .2s;min-height:50px;padding:0 30px;border:1px solid var(--gold,#B8893A);background:var(--gold,#B8893A);color:var(--ink,#141414);font-size:12.5px;letter-spacing:.16em;text-transform:uppercase}.ds-btn-gold:hover{background:var(--gold-light,#E3C77E);border-color:var(--gold-light,#E3C77E)}.ds-btn-gold:focus-visible{outline:2px solid var(--on-ink,#fff);outline-offset:3px}"
+    },
+    {
+      "name": "Botón fantasma sobre oscuro",
+      "kind": "button",
+      "refersTo": "button-ghost-dark",
+      "description": "Acción secundaria de la portada, junto al botón dorado.",
+      "html": "<div class=\"ds-stage-dark-2\"><a class=\"ds-btn-ghost\" href=\"#conjuntos\">Ver conjuntos</a></div>",
+      "css": ".ds-stage-dark-2{padding:24px;background:var(--hero-bg,#0C0C0B)}.ds-btn-ghost{display:inline-flex;align-items:center;justify-content:center;border-radius:0;font-family:var(--f-ui, 'Jost', 'Futura', sans-serif);font-weight:500;text-decoration:none;cursor:pointer;transition:background-color .2s,color .2s,border-color .2s;min-height:50px;padding:0 30px;border:1px solid rgba(255,255,255,.7);background:transparent;color:var(--on-ink,#fff);font-size:12.5px;letter-spacing:.16em;text-transform:uppercase}.ds-btn-ghost:hover{background:var(--on-ink,#fff);border-color:var(--on-ink,#fff);color:var(--ink,#141414)}.ds-btn-ghost:focus-visible{outline:2px solid var(--on-ink,#fff);outline-offset:3px}"
+    },
+    {
+      "name": "Chips de temporada",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Filtro por temporada; única píldora dentro de la tienda.",
+      "html": "<div class=\"ds-chips\" role=\"group\" aria-label=\"Filtrar por temporada\"><button class=\"ds-chip\" type=\"button\" aria-pressed=\"true\">Todo</button><button class=\"ds-chip\" type=\"button\" aria-pressed=\"false\">Verano</button><button class=\"ds-chip\" type=\"button\" aria-pressed=\"false\">Otoño</button><button class=\"ds-chip\" type=\"button\" aria-pressed=\"false\">Invierno</button></div>",
+      "css": ".ds-chips{display:flex;flex-wrap:wrap;gap:8px}.ds-chip{min-height:38px;padding:0 18px;border:1px solid var(--line,#E4E2DD);border-radius:999px;background:transparent;color:var(--ink,#141414);font-family:var(--f-ui, 'Jost', 'Futura', sans-serif);font-size:14px;cursor:pointer;transition:border-color .2s,background-color .2s,color .2s}.ds-chip:hover{border-color:var(--ink,#141414)}.ds-chip[aria-pressed=\"true\"]{background:var(--ink,#141414);border-color:var(--ink,#141414);color:var(--on-ink,#fff)}.ds-chip:focus-visible{outline:2px solid var(--ink,#141414);outline-offset:3px}"
+    },
+    {
+      "name": "Campo de búsqueda",
+      "kind": "input",
+      "refersTo": "input-search",
+      "description": "Campo sin caja: solo una línea inferior que engrosa con el foco.",
+      "html": "<div class=\"ds-search\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><circle cx=\"10.5\" cy=\"10.5\" r=\"6.5\"/><path d=\"m15.5 15.5 5 5\"/></svg><label class=\"ds-sr\" for=\"ds-q\">Buscar prendas</label><input id=\"ds-q\" class=\"ds-input-search\" type=\"search\" placeholder=\"Busca: jean, suéter, azul marino…\"></div>",
+      "css": ".ds-search{display:flex;align-items:center;gap:12px}.ds-search svg{width:20px;height:20px;flex:none;fill:none;stroke:var(--mute,#5E5D58);stroke-width:1.5;stroke-linecap:round}.ds-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}.ds-input-search{flex:1;min-width:0;height:44px;border:0;border-bottom:1px solid var(--ink,#141414);border-radius:0;background:transparent;color:var(--ink,#141414);font-family:var(--f-ui, 'Jost', 'Futura', sans-serif);font-size:16px}.ds-input-search:focus{outline:none;border-bottom-width:2px}.ds-input-search::placeholder{color:var(--mute,#5E5D58)}"
+    },
+    {
+      "name": "Selector de talla",
+      "kind": "custom",
+      "refersTo": "size-option",
+      "description": "Rejilla recta de 4 tallas; obligatoria antes de añadir a la bolsa.",
+      "html": "<fieldset class=\"ds-sizes\"><legend>Talla</legend><div class=\"ds-size-opts\"><input type=\"radio\" name=\"ds-t\" id=\"ds-t1\"><label for=\"ds-t1\">CH</label><input type=\"radio\" name=\"ds-t\" id=\"ds-t2\" checked><label for=\"ds-t2\">M</label><input type=\"radio\" name=\"ds-t\" id=\"ds-t3\"><label for=\"ds-t3\">G</label><input type=\"radio\" name=\"ds-t\" id=\"ds-t4\"><label for=\"ds-t4\">EG</label></div></fieldset>",
+      "css": ".ds-sizes{border:0;padding:0;margin:0;min-width:0;font-family:var(--f-ui, 'Jost', 'Futura', sans-serif);color:var(--ink,#141414)}.ds-sizes legend{padding:0;margin-bottom:8px;font-size:13px;font-weight:500}.ds-size-opts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}.ds-size-opts input{position:absolute;opacity:0;width:1px;height:1px}.ds-size-opts label{display:grid;place-items:center;height:46px;border:1px solid var(--line,#E4E2DD);font-size:14px;cursor:pointer;transition:border-color .15s,background-color .15s,color .15s}.ds-size-opts label:hover{border-color:var(--ink,#141414)}.ds-size-opts input:checked+label{background:var(--ink,#141414);border-color:var(--ink,#141414);color:var(--on-ink,#fff)}.ds-size-opts input:focus-visible+label{outline:2px solid var(--ink,#141414);outline-offset:2px}"
+    },
+    {
+      "name": "Encabezado",
+      "kind": "nav",
+      "refersTo": "navigation",
+      "description": "Estado claro del encabezado fijo: wordmark con K dorada, enlaces subrayables e iconos de trazo fino.",
+      "html": "<header class=\"ds-header\"><a class=\"ds-wordmark\" href=\"#inicio\">YO<span>K</span>REM</a><nav class=\"ds-nav\" aria-label=\"Principal\"><a href=\"#tienda\">Tienda</a><a href=\"#tienda\">Verano</a><a href=\"#tienda\">Otoño</a><a href=\"#tienda\">Invierno</a><a href=\"#conjuntos\">Conjuntos</a><a href=\"#nosotros\">Nosotros</a></nav><div class=\"ds-actions\"><button class=\"ds-icon\" type=\"button\" aria-label=\"Buscar\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><circle cx=\"10.5\" cy=\"10.5\" r=\"6.5\"/><path d=\"m15.5 15.5 5 5\"/></svg></button><button class=\"ds-icon\" type=\"button\" aria-label=\"Favoritos\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M12 20.3 4.6 13a4.7 4.7 0 0 1 0-6.7 4.7 4.7 0 0 1 6.7 0l.7.7.7-.7a4.7 4.7 0 0 1 6.7 0 4.7 4.7 0 0 1 0 6.7Z\"/></svg></button><button class=\"ds-icon\" type=\"button\" aria-label=\"Bolsa de compras\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M5 8h14l-1 12.5H6Z\"/><path d=\"M9 8V6.5a3 3 0 0 1 6 0V8\"/></svg><span class=\"ds-badge\">2</span></button></div></header>",
+      "css": ".ds-header{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;height:64px;padding:0 24px;background:color-mix(in srgb,var(--paper,#fff) 94%,transparent);border-bottom:1px solid var(--line,#E4E2DD);color:var(--ink,#141414);font-family:var(--f-ui, 'Jost', 'Futura', sans-serif)}.ds-wordmark{justify-self:start;font-family:var(--f-display, 'Bodoni Moda', Didot, Georgia, serif);font-size:20px;letter-spacing:.34em;margin-right:-.34em;line-height:1;text-decoration:none;color:inherit}.ds-wordmark span{color:var(--gold,#B8893A)}.ds-nav{display:flex;gap:28px;font-size:14px}.ds-nav a{color:inherit;text-decoration:none;padding-block:6px;border-bottom:1px solid transparent;transition:border-color .2s}.ds-nav a:hover{border-color:currentColor}.ds-nav a:focus-visible,.ds-icon:focus-visible,.ds-wordmark:focus-visible{outline:2px solid var(--ink,#141414);outline-offset:3px}.ds-actions{justify-self:end;display:flex;gap:2px}.ds-icon{position:relative;display:grid;place-items:center;width:42px;height:42px;border:0;background:none;color:inherit;cursor:pointer}.ds-icon svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}.ds-badge{position:absolute;top:3px;right:1px;min-width:17px;height:17px;padding-inline:4px;border-radius:9px;background:var(--ink,#141414);color:var(--on-ink,#fff);font-size:10.5px;font-weight:500;line-height:17px;text-align:center;font-variant-numeric:tabular-nums}"
+    },
+    {
+      "name": "Tarjeta de prenda",
+      "kind": "card",
+      "refersTo": "product-card-media",
+      "description": "Prenda sobre su pozo gris hueso, sin nada encima de la imagen; pie de foto tipográfico con precio, temporada, muestra y favorito.",
+      "html": "<article class=\"ds-card\"><div class=\"ds-card-media\"><img class=\"ds-img-main\" src=\"img/cardigan-cafe.webp\" alt=\"\"><img class=\"ds-img-alt\" src=\"img/modelo-otono.webp\" alt=\"\"><div class=\"ds-quick\" aria-hidden=\"true\"><span>Añadir talla</span><button type=\"button\" tabindex=\"-1\">CH</button><button type=\"button\" tabindex=\"-1\">M</button><button type=\"button\" tabindex=\"-1\">G</button><button type=\"button\" tabindex=\"-1\">EG</button></div></div><div class=\"ds-card-info\"><h3>Cárdigan café</h3><p class=\"ds-price\">$699</p><p class=\"ds-card-meta\"><span class=\"ds-season\">Otoño</span><span class=\"ds-swatch\" style=\"--sw:#8B6446\" title=\"Café\"></span></p><button class=\"ds-fav\" type=\"button\" aria-pressed=\"false\" aria-label=\"Guardar Cárdigan café en favoritos\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M12 20.3 4.6 13a4.7 4.7 0 0 1 0-6.7 4.7 4.7 0 0 1 6.7 0l.7.7.7-.7a4.7 4.7 0 0 1 6.7 0 4.7 4.7 0 0 1 0 6.7Z\"/></svg></button></div></article>",
+      "css": ".ds-card{width:260px;font-family:var(--f-ui, 'Jost', 'Futura', sans-serif);color:var(--ink,#141414)}.ds-card-media{position:relative;aspect-ratio:3/4;overflow:hidden;container-type:size;background:linear-gradient(to bottom,transparent calc(76% - 1px),color-mix(in srgb,var(--line,#E4E2DD),var(--mute,#5E5D58) 22%) calc(76% - 1px) 76%,transparent 76%),linear-gradient(to bottom,var(--tile,#F3F2EF) 76%,color-mix(in srgb,var(--tile,#F3F2EF),var(--line,#E4E2DD) 70%) 76%,var(--tile,#F3F2EF) 100%)}.ds-card-media::after{content:\"\";position:absolute;inset:12px;border:1px solid color-mix(in srgb,var(--ink,#141414) 14%,transparent);pointer-events:none;transition:border-color .3s}.ds-card-media:hover::after{border-color:color-mix(in srgb,var(--ink,#141414) 35%,transparent)}.ds-card-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center bottom;padding:10cqh 12cqw 15cqh;transition:opacity .35s ease,transform .6s cubic-bezier(.2,.7,.2,1)}.ds-card-media .ds-img-alt{opacity:0;padding:5cqh 10cqw 6cqh}.ds-card-media:hover .ds-img-main{opacity:0}.ds-card-media:hover .ds-img-alt{opacity:1;transform:scale(1.02)}.ds-quick{position:absolute;left:12px;right:12px;bottom:12px;z-index:1;display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding:10px 12px;background:var(--paper,#fff);transform:translateY(calc(100% + 12px));transition:transform .28s cubic-bezier(.2,.7,.2,1)}.ds-card-media:hover .ds-quick{transform:none}.ds-quick span{margin-right:auto;font-size:12px;color:var(--mute,#5E5D58)}.ds-quick button{min-width:34px;height:30px;padding:0 6px;border:1px solid var(--line,#E4E2DD);background:none;font:inherit;font-size:12.5px;cursor:pointer}.ds-quick button:hover{border-color:var(--ink,#141414);background:var(--ink,#141414);color:var(--on-ink,#fff)}.ds-card-info{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:baseline;column-gap:12px;padding-top:12px}.ds-card-info h3{margin:0;font-size:15px;font-weight:400;line-height:1.35}.ds-price{margin:0;font-size:15px;font-weight:500;font-variant-numeric:tabular-nums;white-space:nowrap}.ds-card-meta{grid-column:1;align-self:center;display:flex;align-items:center;gap:10px;margin:4px 0 0}.ds-season{font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--mute,#5E5D58)}.ds-swatch{flex:none;width:12px;height:12px;border-radius:50%;background:var(--sw);box-shadow:inset 0 0 0 1px rgba(20,20,20,.22)}.ds-fav{grid-column:2;align-self:center;justify-self:end;width:42px;height:42px;margin:-6px -11px -10px 0;display:grid;place-items:center;border:0;background:none;cursor:pointer}.ds-fav svg{width:20px;height:20px;fill:none;stroke:var(--ink,#141414);stroke-width:1.5;stroke-linejoin:round;transition:fill .2s,transform .2s cubic-bezier(.2,.7,.2,1)}.ds-fav[aria-pressed=\"true\"] svg{fill:var(--ink,#141414)}.ds-fav:active svg{transform:scale(.88)}.ds-fav:focus-visible{outline:2px solid var(--ink,#141414);outline-offset:-2px}"
+    },
+    {
+      "name": "Tarjeta de colecciones en pasarela",
+      "kind": "custom",
+      "refersTo": "glass-panel",
+      "description": "Componente de firma: panel de cristal ahumado sobre el video con los tres lookbooks.",
+      "html": "<div class=\"ds-runway-stage\"><aside class=\"ds-runway\"><div class=\"ds-runway-head\"><h2>Colecciones en pasarela</h2><span>3 lookbooks</span></div><ul><li><a href=\"#tienda\"><span class=\"ds-rw-media\"><img src=\"img/lookbook-verano.webp\" alt=\"\"></span><span class=\"ds-rw-cap\"><strong>Verano</strong><span>Fresco</span></span></a></li><li><a href=\"#tienda\"><span class=\"ds-rw-media\"><img src=\"img/lookbook-otono.webp\" alt=\"\"></span><span class=\"ds-rw-cap\"><strong>Otoño</strong><span>Cálido</span></span></a></li><li><a href=\"#tienda\"><span class=\"ds-rw-media\"><img class=\"ds-rw-right\" src=\"img/lookbook-invierno.webp\" alt=\"\"></span><span class=\"ds-rw-cap\"><strong>Invierno</strong><span>Sobrio</span></span></a></li></ul></aside></div>",
+      "css": ".ds-runway-stage{padding:32px;background:linear-gradient(135deg,#2a2622,#0C0C0B)}.ds-runway{width:min(430px,100%);padding:16px 16px 14px;border:1px solid var(--glass-line,rgba(255,255,255,.18));background:rgba(14,14,13,.46);-webkit-backdrop-filter:blur(16px) saturate(1.2);backdrop-filter:blur(16px) saturate(1.2);color:var(--on-ink,#fff);font-family:var(--f-ui, 'Jost', 'Futura', sans-serif)}.ds-runway-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:12px;font-size:10.5px;font-weight:500;letter-spacing:.2em;text-transform:uppercase}.ds-runway-head h2{margin:0;font:inherit;color:rgba(255,255,255,.86)}.ds-runway-head span{color:var(--gold-light,#E3C77E)}.ds-runway ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.ds-runway a{display:flex;flex-direction:column;color:inherit;text-decoration:none}.ds-runway a:focus-visible{outline:2px solid var(--on-ink,#fff);outline-offset:3px}.ds-rw-media{position:relative;display:block;aspect-ratio:3/4.2;overflow:hidden;background:#1D1C1A}.ds-rw-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}.ds-rw-media .ds-rw-right{object-position:62% center}.ds-rw-media::after{content:\"\";position:absolute;inset:0;border:1px solid transparent;transition:border-color .3s}.ds-runway a:hover .ds-rw-media img{transform:scale(1.05)}.ds-runway a:hover .ds-rw-media::after{border-color:var(--gold-light,#E3C77E)}.ds-rw-cap{display:flex;flex-direction:column;gap:3px;padding-top:9px}.ds-rw-cap strong{font-family:var(--f-display, 'Bodoni Moda', Didot, Georgia, serif);font-style:italic;font-weight:400;font-size:18px;line-height:1.1}.ds-rw-cap span{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.66)}"
+    }
+  ],
+  "narrative": {
+    "northStar": "La Revista de Temporada",
+    "overview": "YOKREM se hojea como una revista de moda en la que cada colección (Verano, Otoño, Invierno) es un número propio. Los titulares van en una Didone de alto contraste, las etiquetas en mayúsculas espaciadas, las divisiones son líneas de un pixel y el resto es mucho papel blanco. La portada es la única página oscura: video a sangre completa bajo veladuras negras, el titular en Bodoni y el oro viejo como firma. Al bajar, la revista se abre a una tienda clara donde la prenda manda.\n\nEl tono es casual urbano con acabado de lujo: ropa para todos los días presentada con el cuidado de una marca de lujo, pero sin volverse inaccesible. Los precios siempre están a la vista y el lenguaje es directo. Los componentes tienen el carácter de una boutique silenciosa: esquinas rectas, negro sólido para la acción principal, bordes solo donde separan una función y aire suficiente para que el producto hable solo.\n\nEl sistema rechaza tres cosas: parecer una tienda genérica de plantilla, contar el origen chiapaneco con artesanía folclórica y dar la sensación de lujo inaccesible.",
+    "keyCharacteristics": [
+      "Papel blanco, negro carbón y oro viejo; el rojo aparece solo donde hay dinero ahorrado.",
+      "Bodoni Moda para los titulares, siempre en peso 400 y con la cursiva como énfasis; Jost para todo lo que se lee o se pulsa.",
+      "Esquinas rectas en todo; la píldora queda para filtros, contadores y controles sobre video.",
+      "Mayormente plano: la profundidad sale del tono y de las líneas finas. El cristal ahumado aparece a veces, siempre sobre imagen.",
+      "Una portada oscura y cinematográfica; el resto de la revista es claro.",
+      "El catálogo se compone como una hoja de contactos con una plana cada cinco prendas; los conjuntos, como pliegos horizontales con créditos.",
+      "Movimiento lento y suave con una sola curva (`cubic-bezier(.2, .7, .2, 1)`); todo se detiene con \"reducir movimiento\"."
+    ],
+    "rules": [
+      {
+        "name": "La Regla del Oro Escaso",
+        "body": "El oro viejo es firma, no pintura: marca la K, los separadores, un solo botón en la portada y los bordes activos. Nunca rellena superficies grandes ni se usa en texto de lectura.",
+        "section": "colors"
+      },
+      {
+        "name": "La Regla del Rojo que Ahorra",
+        "body": "El rojo aparece solo donde hay dinero ahorrado o un error que corregir. Nunca es decorativo ni se usa en titulares.",
+        "section": "colors"
+      },
+      {
+        "name": "La Regla de la Tienda en Papel",
+        "body": "Todo lo que sirve para comprar (catálogo, tarjetas, vista rápida, bolsa y favoritos) vive sobre papel o gris hueso. El negro queda para las pausas editoriales: barra de promoción, portada, banda del nombre y aviso breve.",
+        "section": "colors"
+      },
+      {
+        "name": "La Regla de la Cursiva que Subraya",
+        "body": "El énfasis de la marca es la cursiva de Bodoni: segunda línea del titular, nombres de temporada en los lookbooks, lema del pie y valores alternos. Bodoni nunca va en negrita; su único peso es 400.",
+        "section": "typography"
+      },
+      {
+        "name": "La Regla de la Etiqueta Espaciada",
+        "body": "Toda mayúscula en Jost lleva tracking (0.12–0.2em) y va en 500. Las mayúsculas en Bodoni son exclusivas del nombre YOKREM (wordmark con 0.34em y las sílabas YO·KR·EM).",
+        "section": "typography"
+      },
+      {
+        "name": "La Regla de la Cifra Tabular",
+        "body": "Precios, cantidades, conteos y totales usan `font-variant-numeric: tabular-nums`, para que las columnas de dinero no bailen.",
+        "section": "typography"
+      },
+      {
+        "name": "La Regla de la Hoja de Contactos",
+        "body": "En el catálogo, columnas juntas (10–12px) y filas amplias (32–44px), con una plana cada cinco prendas: las prendas se leen como una tira continua, cada fila respira y la escala cambia con ritmo.",
+        "section": "layout"
+      },
+      {
+        "name": "La Regla del Filete de Índice",
+        "body": "Cada titular de sección de compra se apoya en un filete de 1px en negro carbón; las divisiones internas van en línea hueso. Las cajas y los fondos de sección no separan contenido.",
+        "section": "layout"
+      },
+      {
+        "name": "La Regla del Plano por Defecto",
+        "body": "Las superficies son planas. Lo que flota (bolsa, modal, aviso) se distingue por el velo y el contraste, no por una sombra.",
+        "section": "elevation"
+      },
+      {
+        "name": "La Regla del Estudio",
+        "body": "Una prenda nunca flota centrada en la nada: se apoya en el piso de su ciclorama, con la base un poco por debajo del horizonte, dentro de su paspartú. El suelo lo da el tono, no una sombra.",
+        "section": "elevation"
+      },
+      {
+        "name": "La Regla del Cristal con Motivo",
+        "body": "El cristal solo va sobre imagen o video en movimiento. Sobre papel liso no hay nada que desenfocar, y ahí no se usa.",
+        "section": "elevation"
+      },
+      {
+        "name": "La Regla del Corte Recto",
+        "body": "Si no es un filtro, un contador o un control sobre video, sus esquinas son rectas. Redondear una tarjeta o un botón la convierte en tienda de plantilla.",
+        "section": "shapes"
+      }
+    ],
+    "dos": [
+      "**Do** usa Bodoni Moda en 400 para titulares, con la cursiva como único énfasis, y Jost para todo lo que se lee o se pulsa.",
+      "**Do** mantén esquinas rectas (0px) en botones, tarjetas, campos y diálogos; reserva la píldora (999px) para filtros, contadores y controles sobre video.",
+      "**Do** presenta cada prenda con fondo transparente, centrada en su pozo gris hueso (#F3F2EF), con aire alrededor; la temporada, el precio y el ahorro van en el pie de foto o en los créditos, nunca encima de la imagen.",
+      "**Do** usa cifras tabulares en precios, cantidades y contadores.",
+      "**Do** usa oro viejo tinta (#86621F) para texto dorado pequeño sobre fondo claro y oro claro (#E3C77E) sobre negro.",
+      "**Do** separa con líneas de 1px en línea hueso (#E4E2DD) y con cambios de tono antes que con cajas o sombras.",
+      "**Do** anima con la curva `cubic-bezier(.2, .7, .2, 1)` y respeta \"reducir movimiento\": nada se mueve solo si el sistema lo pide.",
+      "**Do** deja la acción principal de la tienda en negro carbón sólido; el botón dorado es exclusivo de la portada oscura."
+    ],
+    "donts": [
+      "**Don't** hagas que parezca una tienda genérica de plantilla: nada de botones redondeados, sombras de tarjeta ni colores de sistema.",
+      "**Don't** cuentes el origen chiapaneco con textiles, grecas, bordados ni colores típicos; eso es artesanía folclórica y no es esta marca.",
+      "**Don't** caigas en el lujo inaccesible: precios siempre visibles, texto directo y nada que haga sentir la ropa fuera de alcance.",
+      "**Don't** uses el rojo (#C8102E) fuera del ahorro y los errores.",
+      "**Don't** rellenes superficies grandes de oro ni lo uses en texto de lectura.",
+      "**Don't** pongas sombras de elevación; lo que flota se separa con el velo del fondo y el contraste del papel.",
+      "**Don't** uses Bodoni en negrita ni Jost para titulares.",
+      "**Don't** añadas bordes que no separen una función; en una boutique silenciosa el producto habla solo."
+    ]
+  }
+}
