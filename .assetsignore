@@ -1,0 +1,13 @@
+# Archivos del repositorio que no se publican (wrangler sube todo lo demás de esta carpeta)
+.git
+.github
+.gitignore
+.gitattributes
+.impeccable
+.claude
+.wrangler
+.dev.vars
+node_modules
+*.md
+wrangler.jsonc
+screen.png

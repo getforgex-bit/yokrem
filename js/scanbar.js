@@ -7,7 +7,9 @@
    exactamente igual que siempre, solo con sus productos del código.
 
    Configuración, en la etiqueta <script>:
-     data-url     URL pública de Scan-bar (vacía = integración apagada)
+     data-url     URL pública de Scan-bar. Vacía = automática: si la página vive en <web>.<cuenta>.workers.dev,
+                  Scan-bar está en scan-bar.<cuenta>.workers.dev (misma cuenta de Cloudflare); en otro dominio,
+                  apagada. "off" la apaga siempre.
      data-tienda  identificador del negocio en Scan-bar
    Para probar en local: abre la página con ?scanbar=http://localhost:3000 (solo se aceptan localhost/127.0.0.1;
    se recuerda durante la sesión del navegador; ?scanbar= vacío lo olvida).
@@ -18,6 +20,8 @@
   var url = ((script && script.getAttribute('data-url')) || '').trim();
   var tienda = ((script && script.getAttribute('data-tienda')) || '').trim();
   var ESPERA_MS = 1500; // primera visita sin copia guardada: lo máximo que se espera antes de pintar sin extras
+  if (!url) { var cuenta = /^[a-z0-9-]+\.([a-z0-9-]+\.workers\.dev)$/i.exec(location.hostname); if (cuenta) url = 'https://scan-bar.' + cuenta[1]; }
+  if (url === 'off') url = '';
 
   try {
     var q = new URLSearchParams(location.search).get('scanbar');

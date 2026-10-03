@@ -1,0 +1,12 @@
+// YOKREM en Cloudflare (Workers Static Assets): sitio estático, sin código de servidor.
+// Publicar: npx wrangler deploy  →  https://yokrem.<tu-cuenta>.workers.dev
+// El nombre debe coincidir con "worker" de este negocio en Scan-bar (apps/api/src/sync.ts): de ahí sale la URL
+// a la que redirigen sus códigos. Lo que no se publica está en .assetsignore.
+{
+  "name": "yokrem",
+  "compatibility_date": "2026-09-01",
+  "assets": {
+    "directory": ".",
+    "not_found_handling": "404-page"
+  }
+}

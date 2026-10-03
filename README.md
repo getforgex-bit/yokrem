@@ -7,18 +7,14 @@ Sitio estático en HTML, CSS y JavaScript vanilla (sin frameworks ni dependencia
 - Doble clic en `index.html`, o
 - Servidor local: `python -m http.server 8000` dentro de esta carpeta y abrir `http://localhost:8000`.
 
-## Publicar en Cloudflare Pages
+## Publicar en Cloudflare
 
-El sitio no necesita compilación. En Cloudflare: **Workers & Pages → Create → Pages → Connect to Git**, elegir el repositorio `getforgex-bit/yokrem` y configurar:
+Se publica como Worker de assets estáticos (`wrangler.jsonc`; `.assetsignore` deja fuera los archivos del repositorio); no necesita compilación. Dos formas:
 
-| Ajuste | Valor |
-|---|---|
-| Production branch | `main` |
-| Framework preset | `None` |
-| Build command | *(vacío)* |
-| Build output directory | `/` |
+- **Desde GitHub** (cada push a `main` publica): Workers & Pages → Create → **Import a repository** → este repositorio. Build command: *(vacío)*; Deploy command: `npx wrangler deploy`.
+- **Desde la terminal**: `npx wrangler login` (una vez) y `npx wrangler deploy`.
 
-Cada `git push` a `main` publica una nueva versión; las demás ramas generan vistas previas.
+Queda en `https://yokrem.<tu-cuenta>.workers.dev`. Usa Workers y no Pages: en la misma cuenta que Scan-bar, la página lo encuentra sola y Scan-bar sabe a qué URL mandar sus códigos. Pasos de todo el sistema: `docs/DESPLIEGUE.md` en el repositorio Scan-bar.
 
 `_headers` define cabeceras de seguridad y la caché de imágenes (7 días) y videos (30 días). CSS y JS usan la caché por defecto de Cloudflare (se revalidan en cada visita), así que los cambios se ven de inmediato. Si reemplazas una imagen o video conservando el nombre, cambia el nombre del archivo para evitar que los visitantes vean la versión anterior.
 
@@ -30,7 +26,9 @@ css/styles.css      Estilos y paleta de marca (tokens al inicio del archivo)
 js/products.js      Catálogo: prendas, conjuntos, tallas y temporadas  ← aquí se editan productos y precios
 js/app.js           Lógica: filtros, orden, búsqueda, vista rápida, bolsa, favoritos
 img/                Fotos de producto, logotipo (WebP) y video de portada (MP4)
-_headers            Cabeceras HTTP para Cloudflare Pages
+_headers            Cabeceras HTTP para Cloudflare
+wrangler.jsonc      Publicación en Cloudflare (Workers Static Assets)
+.assetsignore       Lo que no se publica (repositorio, .md)
 ```
 
 ## Qué incluye
@@ -58,9 +56,9 @@ _headers            Cabeceras HTTP para Cloudflare Pages
 
 ## Scan-bar (catálogo y códigos)
 
-Scan-bar es la base de datos de productos y códigos de barras de los negocios. Las prendas de `js/products.js` se registran solas en Scan-bar (`npm run sync:repos` allá): **cada talla es un producto con su propio código** (`top-blanco-crop-M`), listo para imprimir su etiqueta. Las prendas que se agregan desde Scan-bar (*Administración → Productos y etiquetas*) aparecen en la tienda sin tocar este repositorio.
+Scan-bar es la base de datos de productos y códigos de barras de los negocios. Las prendas de `js/products.js` se registran solas en Scan-bar (Scan-bar revisa este repositorio cada 10 minutos; `npm run sync:repos` allá lo fuerza): **cada talla es un producto con su propio código** (`top-blanco-crop-M`), listo para imprimir su etiqueta. Las prendas que se agregan desde Scan-bar (*Administración → Productos y etiquetas*) aparecen en la tienda sin tocar este repositorio.
 
-- Activar: en `index.html`, `<script src="js/scanbar.js" data-url="https://URL-DE-SCAN-BAR" data-tienda="yokrem">`. Vacío = solo las prendas del código.
+- Conexión: automática si la tienda vive en `yokrem.<tu-cuenta>.workers.dev` (usa `scan-bar.<tu-cuenta>.workers.dev`). En otro dominio: `data-url="https://URL-DE-SCAN-BAR"` en la etiqueta de `js/scanbar.js` de `index.html`; `data-url="off"` la apaga.
 - Probar en local: `http://localhost:8000/?scanbar=http://localhost:3000` (solo acepta localhost).
 - En Scan-bar, para que una prenda nueva aparezca aquí: categoría = temporada (`verano`, `otono` o `invierno`), variantes = tallas (`CH, M, G, EG`); atributos opcionales `color` y `muestra` (hex). Sin foto se usa el look de la temporada.
 - Si Scan-bar no responde, la tienda funciona igual con sus prendas. Contrato y diseño completo: `docs/INTEGRACION-WEBS.md` en el repositorio Scan-bar.
