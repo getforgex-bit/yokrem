@@ -119,6 +119,105 @@ window.YOKREM_PRODUCTOS = [
     img: 'img/pantalon-beige.webp', w: 637, h: 850,
     look: 'img/modelo-invierno.webp', encuadre: 'inferior',
     descripcion: 'Pantalón de pierna recta con pinzas, en tono beige.'
+  },
+  {
+    id: 'camisa-calada-beige',
+    nombre: 'Camisa calada beige',
+    temporada: 'verano',
+    precio: 649,
+    color: 'Beige',
+    muestra: '#E6D8BC',
+    img: 'img/camisa-calada-beige.webp', w: 833, h: 900,
+    look: 'img/modelo-camisa-calada-beige.webp', encuadre: 'superior',
+    descripcion: 'Camisa de manga corta en algodón con tejido calado y bordado geométrico. Fresca y con textura.'
+  },
+  {
+    id: 'vestido-mezclilla',
+    nombre: 'Vestido de mezclilla',
+    temporada: 'verano',
+    precio: 799,
+    color: 'Azul mezclilla',
+    muestra: '#4A74A8',
+    img: 'img/vestido-mezclilla.webp', w: 342, h: 900,
+    look: 'img/modelo-vestido-mezclilla.webp', encuadre: 'cintura',
+    descripcion: 'Vestido corto de tirantes con botones al frente y costuras marcadas en la cintura.'
+  },
+  {
+    id: 'jean-blanco-ancho',
+    nombre: 'Jean blanco pierna ancha',
+    temporada: 'verano',
+    precio: 699,
+    color: 'Blanco',
+    muestra: '#F4F2EC',
+    img: 'img/jean-blanco-ancho.webp', w: 519, h: 900,
+    look: 'img/modelo-jean-blanco-ancho.webp', encuadre: 'inferior',
+    descripcion: 'Jean de talle alto y pierna ancha en blanco, con dobladillo deshilachado.'
+  },
+  {
+    id: 'camisa-taupe',
+    nombre: 'Camisa taupe',
+    temporada: 'otono',
+    precio: 649,
+    color: 'Taupe',
+    muestra: '#7A6A5D',
+    img: 'img/camisa-taupe.webp', w: 900, h: 869,
+    look: 'img/modelo-camisa-taupe.webp', encuadre: 'superior',
+    descripcion: 'Camisa de manga larga y corte clásico en tono taupe. Fácil de combinar.'
+  },
+  {
+    id: 'chaqueta-mezclilla-pedreria',
+    nombre: 'Chaqueta de mezclilla con pedrería',
+    temporada: 'otono',
+    precio: 899,
+    color: 'Mezclilla claro',
+    muestra: '#A9BCD6',
+    img: 'img/chaqueta-mezclilla-pedreria.webp', w: 850, h: 900,
+    look: 'img/modelo-chaqueta-mezclilla-pedreria.webp', encuadre: 'superior',
+    descripcion: 'Chaqueta oversize de mezclilla lavada con tachuelas y piedras de colores en cuello y canesú.'
+  },
+  {
+    id: 'chaleco-cafe',
+    nombre: 'Chaleco café',
+    temporada: 'otono',
+    precio: 599,
+    color: 'Café',
+    muestra: '#6B3B26',
+    img: 'img/chaleco-cafe.webp', w: 604, h: 900,
+    look: 'img/modelo-chaleco-cafe.webp', encuadre: 'superior',
+    descripcion: 'Chaleco de escote cuadrado con botones decorativos metálicos y de perla, y bajo asimétrico.'
+  },
+  {
+    id: 'jean-ancho-azul',
+    nombre: 'Jean ancho azul',
+    temporada: 'otono',
+    precio: 699,
+    color: 'Azul medio',
+    muestra: '#7DA2D2',
+    img: 'img/jean-ancho-azul.webp', w: 528, h: 900,
+    look: 'img/modelo-jean-ancho-azul.webp', encuadre: 'inferior',
+    descripcion: 'Jean de talle alto y pierna ancha en azul medio con efecto lavado.'
+  },
+  {
+    id: 'chamarra-piel-roja',
+    nombre: 'Chamarra de piel roja',
+    temporada: 'invierno',
+    precio: 1299,
+    color: 'Rojo',
+    muestra: '#B8342A',
+    img: 'img/chamarra-piel-roja.webp', w: 900, h: 888,
+    look: 'img/modelo-chamarra-piel-roja.webp', encuadre: 'superior',
+    descripcion: 'Chamarra de piel granulada con cuello camisero, cierre frontal y bolsillos de parche.'
+  },
+  {
+    id: 'polo-tejido-crema',
+    nombre: 'Polo de punto crema',
+    temporada: 'invierno',
+    precio: 599,
+    color: 'Crema',
+    muestra: '#F3EEE2',
+    img: 'img/polo-tejido-crema.webp', w: 717, h: 900,
+    look: 'img/modelo-polo-tejido-crema.webp', encuadre: 'superior',
+    descripcion: 'Polo oversize de punto suave con cuello y tres botones, puños y ruedo acanalados.'
   }
 ];
 
