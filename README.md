@@ -54,3 +54,12 @@ _headers            Cabeceras HTTP para Cloudflare Pages
 | Descripciones | Redactadas a partir de las fotos; confirmar materiales y detalles. |
 | Inventario y envíos | No existen todavía; requieren un backend o plataforma de e-commerce. |
 | SEO | El catálogo se genera con JavaScript. Si el posicionamiento en buscadores es prioridad, conviene generar las fichas de producto en HTML. |
+
+## Scan-bar (catálogo y códigos)
+
+Scan-bar es la base de datos de productos y códigos de barras de los negocios. Las prendas de `js/products.js` se registran solas en Scan-bar (`npm run sync:repos` allá): **cada talla es un producto con su propio código** (`top-blanco-crop-M`), listo para imprimir su etiqueta. Las prendas que se agregan desde Scan-bar (*Administración → Productos y etiquetas*) aparecen en la tienda sin tocar este repositorio.
+
+- Activar: en `index.html`, `<script src="js/scanbar.js" data-url="https://URL-DE-SCAN-BAR" data-tienda="yokrem">`. Vacío = solo las prendas del código.
+- Probar en local: `http://localhost:8000/?scanbar=http://localhost:3000` (solo acepta localhost).
+- En Scan-bar, para que una prenda nueva aparezca aquí: categoría = temporada (`verano`, `otono` o `invierno`), variantes = tallas (`CH, M, G, EG`); atributos opcionales `color` y `muestra` (hex). Sin foto se usa el look de la temporada.
+- Si Scan-bar no responde, la tienda funciona igual con sus prendas. Contrato y diseño completo: `docs/INTEGRACION-WEBS.md` en el repositorio Scan-bar.

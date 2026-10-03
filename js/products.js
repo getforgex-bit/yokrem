@@ -1,7 +1,8 @@
 /* ==========================================================================
    YOKREM — Catálogo
    Datos tomados de la presentación "YOKREM Empresa" (Catálogo Verano, Otoño
-   e Invierno). Para agregar o editar prendas solo se modifica este archivo.
+   e Invierno). Para agregar o editar prendas se modifica este archivo, o se
+   agregan desde Scan-bar sin tocar código (ver README, "Scan-bar").
 
    Campos de cada prenda:
      id           identificador único (se usa en la bolsa y favoritos)

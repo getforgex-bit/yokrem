@@ -6,15 +6,16 @@
    - Conjuntos completos con ahorro calculado
    El pago en línea NO está conectado: el botón "Continuar al pago" muestra
    un aviso. Ver README.md para integrar una pasarela real.
+   Las prendas agregadas desde Scan-bar llegan por js/scanbar.js (ver README).
    ========================================================================== */
-(function () {
+(window.ScanbarWeb ? window.ScanbarWeb.iniciar : function (arrancar) { arrancar([]); })(function (extras) {
   'use strict';
 
   /* ---------- Datos ---------- */
-  var PRODUCTOS = window.YOKREM_PRODUCTOS || [];
-  var CONJUNTOS = window.YOKREM_CONJUNTOS || [];
   var TEMPORADAS = window.YOKREM_TEMPORADAS || {};
   var TALLAS = window.YOKREM_TALLAS || [];
+  var PRODUCTOS = (window.YOKREM_PRODUCTOS || []).concat(prendasDeScanbar(extras));
+  var CONJUNTOS = window.YOKREM_CONJUNTOS || [];
   var MAX_CANTIDAD = 10;
   var CLAVE_BOLSA = 'yokrem.bolsa';
   var CLAVE_FAVORITOS = 'yokrem.favoritos';
@@ -663,4 +664,27 @@
   pintarConjuntos();
   pintarBolsa();
   pintarFavoritos();
-})();
+
+  /* ---------- Prendas agregadas desde Scan-bar ----------
+     La categoría en Scan-bar es la temporada (verano, otono, invierno); las variantes, las tallas
+     (CH, M, G, EG), así el SKU de cada talla es id-TALLA igual que en las prendas del código. */
+  function prendasDeScanbar(lista) {
+    var urlSegura = window.ScanbarWeb ? window.ScanbarWeb.urlSegura : function () { return ''; };
+    var ids = (window.YOKREM_PRODUCTOS || []).map(function (p) { return p.id; });
+    return lista.filter(function (x) {
+      var ok = TEMPORADAS[x.category] && ids.indexOf(x.sku) === -1;
+      if (!ok && window.console) console.warn('Scan-bar: ' + x.sku + ' se omite (la categoría debe ser verano, otono o invierno)');
+      return ok;
+    }).map(function (x) {
+      var look = 'img/look-' + x.category + '.webp';
+      var muestra = String((x.attrs && x.attrs.muestra) || '');
+      return {
+        id: x.sku, nombre: x.name, temporada: x.category, precio: x.priceCents / 100,
+        color: String((x.attrs && x.attrs.color) || 'Único'),
+        muestra: /^#[0-9a-f]{3,8}$/i.test(muestra) ? muestra : '#D9D4CC',
+        img: urlSegura(x.imageUrl) || look, w: 800, h: 800, look: look,
+        descripcion: x.description || ''
+      };
+    });
+  }
+});
